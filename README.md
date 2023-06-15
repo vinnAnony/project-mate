@@ -1,4 +1,4 @@
-# BizMate
+# BizCore
 
 A web app to help in management of an organization - especially software dev team, to manage project, invoicing and payments.
 
