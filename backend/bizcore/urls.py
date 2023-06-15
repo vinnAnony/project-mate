@@ -12,3 +12,7 @@ urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),    
 ]
+
+admin.site.site_header = "BizCore MS Admin"
+admin.site.site_title = "BizCore Admin Portal"
+admin.site.index_title = "Welcome to BizCore MS"
