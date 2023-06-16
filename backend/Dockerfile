@@ -23,5 +23,7 @@ ENV PATH /venv/bin:$PATH
 
 RUN chmod +x entrypoint.sh
 
+EXPOSE 8111
+
 # entrypoint
 CMD ["sh", "entrypoint.sh"]
