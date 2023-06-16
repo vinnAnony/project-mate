@@ -30,3 +30,15 @@ BizMate provides the following features:
   ```bash
           pip install -r requirements.txt
   ```
+  > To run docker image:
+- Pull docker container image:
+
+```yaml
+docker pull vinnjeru/bizcore-django
+```
+
+- Run docker container image:
+
+```yaml
+docker run -it -p 8111:8111 --env-file .env vinnjeru/bizcore-django
+```
