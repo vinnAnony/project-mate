@@ -21,7 +21,7 @@ class User(AbstractUser):
     # USERNAME_FIELD = 'email' #set email to be used for authentication
     
     # add requirements for signup
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'username', 'email']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'email']
     
     def __str__(self) -> str:
         return f'{self.first_name} {self.last_name}'

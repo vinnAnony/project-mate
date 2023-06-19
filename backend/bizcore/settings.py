@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
     # Local apps
-
+    'accounts',
     # Add djangorestframework
     'rest_framework',
     # cors
