@@ -155,9 +155,18 @@ STORAGES = {
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
+    'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.UserRateThrottle',
+        'accounts.throttles.AccountsRateThrottle'
+
     ],
+    'DEFAULT_THROTTLE_RATES': {
+        'user': '200/day',
+        'accounts': '50/day'
+    }
 }
 
 SIMPLE_JWT = {
