@@ -18,7 +18,7 @@ class UserViewSet(ListModelMixin, RetrieveModelMixin, GenericViewSet):
     def get_queryset(self):        
         return User.objects.all()
 
-class RegisterAccountViewSet(CreateModelMixin, GenericViewSet):
+class RegisterUserViewSet(CreateModelMixin, GenericViewSet):
     """Api view to be used when a user first registers to the system"""
 
     queryset = User.objects.all()

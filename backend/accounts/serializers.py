@@ -18,14 +18,16 @@ class UserSerializer(serializers.ModelSerializer):
             'password',
         ]
 
-class UserDetailsSerializer(serializers.ModelSerializer):
-    """Serializer to display the User Details to be used on account registration"""
-
+class UserRegistrationSerializer(serializers.ModelSerializer):
+    """
+    Serializer for registration of user
+    It ensures that a first user does not exist without an account.
+    """
     password = serializers.CharField(style={"input_type": "password"}, write_only=True)
+    confirm_password = serializers.CharField(style={"input_type": "password"}, write_only=True)
 
     def validate_password(self, value):
         """Validating password length"""
-
         password_length = settings.USER_PASSWORD_LENGTH
 
         if len(value) < password_length:
@@ -35,21 +37,20 @@ class UserDetailsSerializer(serializers.ModelSerializer):
 
         return value
 
-    class Meta:
-        model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'password']
+    def validate(self, data):
+        """
+        Validating if password field data equals confirm_password field data.
+        """
+        password = data["password"]
+        confirm_password = data["confirm_password"]
 
-class UserRegistrationSerializer(serializers.ModelSerializer):
-    """
-    Serializer for registration of user
-    It ensures that a first user does not exist without an account.
-    """
+        if password != confirm_password:
+            raise serializers.ValidationError({"confirm_password":"Passwords do not match."})
 
-    confirm_password = serializers.CharField(style={"input_type": "password"}, write_only=True)
-    user = UserDetailsSerializer()
-
+        return data
+    
     def create(self, validated_data):
-        user = dict(validated_data['user'])
+        user = validated_data
         password = user['password']
 
         with transaction.atomic():
@@ -62,21 +63,11 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
             )            
 
             return user
-    
-    def validate(self, data):
-        """
-        Validating if password field data equals confirm_password field data.
-        """
-
-        user = dict(data["user"])
-        password = user["password"]
-        confirm_password = data["confirm_password"]
-
-        if password != confirm_password:
-            raise serializers.ValidationError("Passwords do not match.")
-
-        return data
-
+        
     class Meta:
         model = User
-        fields = ['id', 'user', 'confirm_password']        
+        fields = ['first_name', 'last_name', 'username', 'email', 'password', 'confirm_password']
+        extra_kwargs = {
+            'first_name': {'required': True, 'allow_blank': False},
+            'last_name': {'required': True,'allow_blank': False}
+            }

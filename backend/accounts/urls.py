@@ -1,8 +1,14 @@
 from django.urls import path, include
 
 from accounts import views
+from rest_framework import routers
+
+router = routers.SimpleRouter()
+router.register(r'auth/register', views.RegisterUserViewSet,basename='register')
+router.register(r'users', views.UserViewSet,basename='user')
 
 urlpatterns = [
-    path('auth/register/', views.RegisterAccountViewSet.as_view({'post:create'}),name='register'),
-    path('users/', views.UserViewSet.as_view({'get':'list'}),name='users'),
+    # path('forgot-password/', views.ForgotPasswordView.as_view()),
 ]
+
+urlpatterns += router.urls
