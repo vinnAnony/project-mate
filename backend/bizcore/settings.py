@@ -49,12 +49,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Local apps
     'accounts',
-    # Add djangorestframework
+    'project',
+    #djangorestframework
     'rest_framework',
     # cors
     "corsheaders",
     # JWT
     "rest_framework_simplejwt.token_blacklist",
+    # field filtering
+    'django_filters',
 ]
 
 MIDDLEWARE = [
