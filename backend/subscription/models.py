@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 from django.urls import reverse
+from django.conf import settings
 
 
 # Create your models here.
@@ -24,6 +25,11 @@ class SubscriptionPackage(models.Model):
         max_length=100, choices=SubscriptionDuration.choices, null=False, blank=False
     )
     project_id = models.ForeignKey("project.Project", on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    created_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING, null=False
+    )
 
     class Meta:
         verbose_name = "Subscription Package"
@@ -44,6 +50,11 @@ class Subscription(models.Model):
     project_id = models.ForeignKey("project.Project", on_delete=models.CASCADE)
     subscription_package_id = models.ForeignKey(
         SubscriptionPackage, on_delete=models.CASCADE
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    created_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING, null=False
     )
 
     class Meta:
