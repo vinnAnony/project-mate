@@ -32,12 +32,12 @@ class Project(models.Model):
     production_url = models.CharField(max_length=200,null=True,blank=True) #app package_name or web url or public ip address of the project
     parent_project = models.ForeignKey('self', on_delete=models.CASCADE,null=True,blank=True,related_name='customized_projects')
     status = models.CharField( max_length=55,choices=ProjectStatus.choices,default=ProjectStatus.Initiated)
-    commence_date = models.DateField(auto_now=False, auto_now_add=False)
-    completion_date = models.DateField(auto_now=False, auto_now_add=False,null=True)
-    release_date = models.DateField(auto_now=False, auto_now_add=False,null=True)
+    commence_date = models.DateField(null=True,blank=True)
+    completion_date = models.DateField(null=True,blank=True)
+    release_date = models.DateField(null=True,blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True)
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING, null=False)
 
     class Meta:
         verbose_name = ("Project")
