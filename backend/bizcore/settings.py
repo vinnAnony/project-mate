@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     # Local apps
     'accounts',
     'project',
+    'customer',
     #djangorestframework
     'rest_framework',
     # cors
@@ -58,6 +59,7 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt.token_blacklist",
     # field filtering
     'django_filters',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [

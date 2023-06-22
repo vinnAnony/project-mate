@@ -13,6 +13,7 @@ urlpatterns = [
     path('api/auth/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),    
     path("api/accounts/", include("accounts.urls")),
     path("api/projects/", include("project.urls")),
+    path("api/customers/", include("customer.urls")),
 ]
 
 admin.site.site_header = "BizCore MS Admin"
