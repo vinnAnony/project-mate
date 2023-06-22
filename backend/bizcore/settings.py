@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'accounts',
     'project',
     'customer',
+    'subscription',
     #djangorestframework
     'rest_framework',
     # cors
