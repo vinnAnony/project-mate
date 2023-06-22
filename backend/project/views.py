@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404
+from rest_framework import filters
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics, viewsets
 from rest_framework.authentication import (SessionAuthentication,TokenAuthentication)
@@ -30,6 +31,8 @@ class ProjectViewset(viewsets.ModelViewSet):
     serializer_class = ProjectSerializer
     queryset = Project.objects.all()
     permission_classes = [IsAuthenticated]
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name', 'description']
 
     def perform_create(self, serializer):
         # set logged in user to project created before saving
