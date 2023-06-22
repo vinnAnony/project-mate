@@ -15,8 +15,8 @@ class SubscriptionPackage(models.Model):
     name = models.CharField(max_length=255,null=False,blank=False)
     description = models.TextField(null=False,blank=False)
     price = models.DecimalField(max_digits=5, decimal_places=2,null=False,blank=False)
-    duration = models.CharField(choices=SubscriptionDuration,null=False,blank=False)
-    project_id = models.ForeignKey("project.Project",related_name='project', on_delete=models.CASCADE)
+    duration = models.CharField(max_length=100, choices=SubscriptionDuration.choices,null=False,blank=False)
+    project_id = models.ForeignKey("project.Project", on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = ("Subscription Package")
@@ -31,9 +31,9 @@ class SubscriptionPackage(models.Model):
 
 class Subscription(models.Model):
     id = models.UUIDField(default=uuid.uuid4,primary_key=True,unique=True)
-    customer_id = models.ForeignKey("customer.Customer",related_name='customer', on_delete=models.CASCADE)
-    project_id = models.ForeignKey("project.Project",related_name='project', on_delete=models.CASCADE)
-    subscription_package_id = models.ForeignKey(SubscriptionPackage,related_name='subscription_package', on_delete=models.CASCADE)
+    customer_id = models.ForeignKey("customer.Customer", on_delete=models.CASCADE)
+    project_id = models.ForeignKey("project.Project", on_delete=models.CASCADE)
+    subscription_package_id = models.ForeignKey(SubscriptionPackage , on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = ("Subscription")
