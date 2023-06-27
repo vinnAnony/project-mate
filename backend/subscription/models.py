@@ -43,6 +43,12 @@ class SubscriptionPackage(models.Model):
 
 
 class Subscription(models.Model):
+    class SubscriptionStatus(models.TextChoices):
+        PendingPayment = "Pending Payment"
+        Active = "Active"
+        Suspended = "Suspended"
+        Cancelled = "Cancelled"
+        
     id = models.UUIDField(
         default=uuid.uuid4, primary_key=True, unique=True, editable=False
     )
@@ -51,6 +57,10 @@ class Subscription(models.Model):
     subscription_package_id = models.ForeignKey(
         SubscriptionPackage, on_delete=models.CASCADE
     )
+    status = models.CharField(max_length=100, choices=SubscriptionStatus.choices, null=False, blank=False,default=SubscriptionStatus.PendingPayment)
+    activated_at = models.DateTimeField(null=True, blank=True)
+    suspended_at = models.DateTimeField(null=True, blank=True)
+    cancelled_at = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(
@@ -66,3 +76,5 @@ class Subscription(models.Model):
 
     def get_absolute_url(self):
         return reverse("subscription-detail", kwargs={"pk": self.pk})
+
+# TODO: -create invoice on subscription creation
