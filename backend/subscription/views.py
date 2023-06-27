@@ -40,3 +40,16 @@ class SubscriptionPackageViewset(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         user = User.objects.get(id=self.request.user.id)
         serializer.save(created_by=user)
+
+class InvoiceViewset(viewsets.ModelViewSet):
+    """ "Invoice viewset"""
+
+    serializer_class = InvoiceSerializer
+    queryset = Invoice.objects.all()
+    permission_classes = [IsAuthenticated]
+    filter_backends = [filters.SearchFilter]
+    search_fields = ["invoice_no", "status", "subscription_id"]
+
+    def perform_create(self, serializer):
+        user = User.objects.get(id=self.request.user.id)
+        serializer.save(generated_by=user)

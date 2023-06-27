@@ -5,9 +5,8 @@ from . import views
 
 router = routers.SimpleRouter()
 router.register(r"subscriptions", views.SubscriptionViewset, basename="subscription")
-router.register(
-    r"subscription-packages", views.SubscriptionViewset, basename="subscription-package"
-)
+router.register(r"subscription-packages", views.SubscriptionPackageViewset, basename="subscription-package")
+router.register(r"invoices", views.InvoiceViewset, basename="invoice")
 
 urlpatterns = []
 

@@ -77,4 +77,33 @@ class Subscription(models.Model):
     def get_absolute_url(self):
         return reverse("subscription-detail", kwargs={"pk": self.pk})
 
-# TODO: -create invoice on subscription creation
+    # TODO: -create invoice on subscription creation
+    
+class Invoice(models.Model):
+    class InvoiceStatus(models.TextChoices):
+        Pending = "Pending"
+        Paid = "Paid"
+        Due = "Due"
+        
+    id = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
+    invoice_no = models.AutoField(unique=True, primary_key=True, editable=False,default=10001)
+    subscription_id = models.ForeignKey(Subscription, on_delete=models.CASCADE)    
+    status = models.CharField(max_length=100, choices=InvoiceStatus.choices, null=False, blank=False,default=InvoiceStatus.Pending)
+    total_amount = models.DecimalField(max_digits=11, decimal_places=2, null=False, blank=False)
+    tax_percentage = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)#,default=16
+    total_tax_amount = models.DecimalField(max_digits=11, decimal_places=2, null=True, blank=True,default=0)
+    total_paid = models.DecimalField(max_digits=11, decimal_places=2, null=False, blank=False)
+    generated_at = models.DateTimeField(auto_now_add=True)
+    due_date = models.DateTimeField(null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    generated_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING, null=True)
+
+    class Meta:
+        verbose_name = "Invoice"
+        verbose_name_plural = "Invoices"
+
+    def __str__(self):
+        return f"#{self.invoice_no}: {self.subscription_id}"
+
+    def get_absolute_url(self):
+        return reverse("invoice-detail", args=[str(self.invoice_no)])
