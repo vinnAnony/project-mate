@@ -209,3 +209,23 @@ SIMPLE_JWT = {
 AUTH_USER_MODEL = 'accounts.User'
 # minimum password length
 USER_PASSWORD_LENGTH = 8
+
+# add logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'warning.log',
+        },
+    },
+    'loggers': {
+        '': {
+            'handlers': ['file'],
+            'level': 'WARNING',
+            'propagate': True,
+        },
+    },
+}

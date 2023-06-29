@@ -1,3 +1,4 @@
+import decimal
 import uuid
 from django.db import models
 from django.urls import reverse
@@ -24,7 +25,7 @@ class SubscriptionPackage(models.Model):
     duration = models.CharField(
         max_length=100, choices=SubscriptionDuration.choices, null=False, blank=False
     )
-    project_id = models.ForeignKey("project.Project", on_delete=models.CASCADE)
+    project_id = models.ForeignKey("project.Project", on_delete=models.DO_NOTHING)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(
@@ -52,10 +53,10 @@ class Subscription(models.Model):
     id = models.UUIDField(
         default=uuid.uuid4, primary_key=True, unique=True, editable=False
     )
-    customer_id = models.ForeignKey("customer.Customer", on_delete=models.CASCADE)
-    project_id = models.ForeignKey("project.Project", on_delete=models.CASCADE)
+    customer_id = models.ForeignKey("customer.Customer", on_delete=models.DO_NOTHING)
+    project_id = models.ForeignKey("project.Project", on_delete=models.DO_NOTHING)
     subscription_package_id = models.ForeignKey(
-        SubscriptionPackage, on_delete=models.CASCADE
+        SubscriptionPackage, on_delete=models.DO_NOTHING
     )
     status = models.CharField(max_length=100, choices=SubscriptionStatus.choices, null=False, blank=False,default=SubscriptionStatus.PendingPayment)
     activated_at = models.DateTimeField(null=True, blank=True)
@@ -77,8 +78,13 @@ class Subscription(models.Model):
     def get_absolute_url(self):
         return reverse("subscription-detail", kwargs={"pk": self.pk})
 
-    # TODO: -create invoice on subscription creation
-    
+# Initialize first invoice number
+def get_initial_invoice_number():
+    if Invoice.objects.exists():
+        return None
+    else:
+        return 10001
+        
 class Invoice(models.Model):
     class InvoiceStatus(models.TextChoices):
         Pending = "Pending"
@@ -86,17 +92,17 @@ class Invoice(models.Model):
         Due = "Due"
         
     id = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
-    invoice_no = models.AutoField(unique=True, primary_key=True, editable=False,default=10001)
-    subscription_id = models.ForeignKey(Subscription, on_delete=models.CASCADE)    
+    invoice_no = models.AutoField(unique=True, primary_key=True, editable=False,default=get_initial_invoice_number)
+    subscription_id = models.ForeignKey(Subscription, on_delete=models.DO_NOTHING,related_name='subscriptions')    
     status = models.CharField(max_length=100, choices=InvoiceStatus.choices, null=False, blank=False,default=InvoiceStatus.Pending)
-    total_amount = models.DecimalField(max_digits=11, decimal_places=2, null=False, blank=False)
+    total_amount = models.DecimalField(max_digits=11, decimal_places=2, null=False, blank=False,help_text='Amount excluding tax')
     tax_percentage = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)#,default=16
-    total_tax_amount = models.DecimalField(max_digits=11, decimal_places=2, null=True, blank=True,default=0)
-    total_paid = models.DecimalField(max_digits=11, decimal_places=2, null=False, blank=False)
+    total_tax_amount = models.DecimalField(max_digits=11, decimal_places=2, null=True, blank=True)
+    total_paid = models.DecimalField(max_digits=11, decimal_places=2, null=True, blank=True)
     generated_at = models.DateTimeField(auto_now_add=True)
     due_date = models.DateTimeField(null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
-    generated_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING, null=True)
+    generated_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING, null=True, blank=True)
 
     class Meta:
         verbose_name = "Invoice"
@@ -107,3 +113,9 @@ class Invoice(models.Model):
 
     def get_absolute_url(self):
         return reverse("invoice-detail", args=[str(self.invoice_no)])
+    
+    def save(self, *args, **kwargs):
+        if not self.total_tax_amount and self.tax_percentage:
+            self.total_tax_amount = self.total_amount * decimal.Decimal(self.tax_percentage / 100)
+        super().save(*args, **kwargs)
+  

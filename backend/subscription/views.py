@@ -13,6 +13,9 @@ from accounts.models import User
 from .models import *
 from .serializers import *
 
+import logging
+logger = logging.getLogger(__name__)
+
 
 class SubscriptionViewset(viewsets.ModelViewSet):
     """ "Subscription viewset"""
@@ -23,9 +26,8 @@ class SubscriptionViewset(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter]
     search_fields = ["customer_id", "project_id", "subscription_package_id"]
 
-    def perform_create(self, serializer):
-        user = User.objects.get(id=self.request.user.id)
-        serializer.save(created_by=user)
+    def perform_create(self, serializer):          
+        super().perform_create(serializer)
 
 
 class SubscriptionPackageViewset(viewsets.ModelViewSet):
