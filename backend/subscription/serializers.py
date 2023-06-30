@@ -1,7 +1,9 @@
 from rest_framework import serializers
 from django.db import transaction
+from django.forms.models import model_to_dict
 
 from .models import *
+from mail.email import send_email
 
 from datetime import datetime, timedelta
 import logging
@@ -32,6 +34,17 @@ class SubscriptionSerializer(serializers.ModelSerializer):
                 due_date = datetime.now() + timedelta(days=14),
                 generated_by = subscription.created_by,
             )
+        
+        # send new subscription email
+        send_email(
+            context={
+                'customer': subscription.customer_id.name,
+                'project': model_to_dict(subscription.subscription_package_id.project_id),
+                'subscription': model_to_dict(subscription.subscription_package_id)
+                },
+            template='new_subscription',
+            recipients=[subscription.customer_id.email]
+        )
 
         return subscription
 

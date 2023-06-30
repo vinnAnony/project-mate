@@ -5,9 +5,9 @@ from .views import *
 
 router = routers.SimpleRouter()
 
-router.register(r"subscription-packages", SubscriptionPackageViewset, basename="subscription-packages")
-router.register(r"subscriptions", SubscriptionViewset, basename="subscriptions")
-router.register(r"invoices", InvoiceViewset, basename="invoices")
+router.register(r"subscription-packages", SubscriptionPackageViewset, basename="subscription-package")
+router.register(r"subscriptions", SubscriptionViewset, basename="subscription")
+router.register(r"invoices", InvoiceViewset, basename="invoice")
 
 # /subscription-packages/{id}/subscriptions/
 subscription_package_router = routers.NestedSimpleRouter(router, r'subscription-packages', lookup='subscription_package')
