@@ -1,0 +1,26 @@
+{% block subject %}Welcome aboard! Your journey with {{project.name}} starts now 🚀{% endblock %}
+{% block plain %}
+  Dear {{customer}},
+
+  We are thrilled to have you join the {{project.name}} family! 🎉
+
+  As a valued member, get ready to unlock a world of possibilities and enjoy the following perks:
+
+      Exclusive access to {{project.name}} - {{subscription.name}} plan.
+      Personalized recommendations based on your preferences
+      Regular updates on the latest trends and innovations
+
+  To get started, here are a few things you can do right away:
+
+      Explore our user-friendly dashboard and personalize your profile.
+      Dive into our vast features of {{project.name}}.
+      Share your feedback and suggestions with us; your voice matters!
+
+  Feel free to reach out to our dedicated support team at support@bizcore.com if you have any questions or need assistance.
+
+  Stay tuned for exciting updates, upcoming events, and special offers crafted just for you. We can't wait to see you thrive with {{project.name}}.
+
+  Once again, welcome aboard, and thank you for being a part of our community!
+
+  Thanks, you rock!
+{% endblock %}

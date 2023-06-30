@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'project',
     'customer',
     'subscription',
+    'mail',
     #djangorestframework
     'rest_framework',
     # cors
@@ -131,7 +132,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -239,3 +240,16 @@ CELERY_RESULT_BACKEND = os.environ.get('CELERY_BROKER', 'redis://redis:6379/0')
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
+
+# Email service configuration
+TEMPLATED_EMAIL_BACKEND = 'templated_email.backends.vanilla_django.TemplateBackend'
+
+TEMPLATED_EMAIL_FILE_EXTENSION = 'email'
+
+EMAIL_USE_TLS = False
+EMAIL_HOST = env("EMAIL_HOST")
+EMAIL_PORT = env("EMAIL_PORT")
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+EMAIL_DEFAULT_FROM_EMAIL = env("EMAIL_DEFAULT_FROM_EMAIL")
+EMAIL_DEFAULT_REPLY_TO = env("EMAIL_DEFAULT_REPLY_TO")
