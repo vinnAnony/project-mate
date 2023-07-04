@@ -40,7 +40,10 @@ class SubscriptionSerializer(serializers.ModelSerializer):
             context={
                 'customer': subscription.customer_id.name,
                 'project': model_to_dict(subscription.subscription_package_id.project_id),
-                'subscription': model_to_dict(subscription.subscription_package_id)
+                'subscription': model_to_dict(subscription.subscription_package_id),
+                'company':{
+                    'name':'BizCore'
+                }
                 },
             template='new_subscription',
             recipients=[subscription.customer_id.email]

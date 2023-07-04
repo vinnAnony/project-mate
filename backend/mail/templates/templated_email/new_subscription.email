@@ -1,26 +1,834 @@
 {% block subject %}Welcome aboard! Your journey with {{project.name}} starts now 🚀{% endblock %}
-{% block plain %}
-  Dear {{customer}},
+{% block html %}
+  <!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; margin: 0 !important; padding: 0 !important;">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta name="format-detection" content="telephone=no,address=no,emai=no,date=no,url=no">
+    <title>Welcome aboard!🚀</title>
+    <link href="#" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open Sans:400&amp;display=swap&amp;subset=cyrillic" rel="stylesheet">
+    <link href="#" rel="stylesheet">
+    <style type="text/css">
+      html {
+        margin: 0 !important;
+        padding: 0 !important
+      }
 
-  We are thrilled to have you join the {{project.name}} family! 🎉
+      * {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%
+      }
 
-  As a valued member, get ready to unlock a world of possibilities and enjoy the following perks:
+      td {
+        vertical-align: top;
+        mso-table-lspace: 0 !important;
+        mso-table-rspace: 0 !important
+      }
 
-      Exclusive access to {{project.name}} - {{subscription.name}} plan.
-      Personalized recommendations based on your preferences
-      Regular updates on the latest trends and innovations
+      a {
+        text-decoration: none
+      }
 
-  To get started, here are a few things you can do right away:
+      img {
+        -ms-interpolation-mode: bicubic
+      }
 
-      Explore our user-friendly dashboard and personalize your profile.
-      Dive into our vast features of {{project.name}}.
-      Share your feedback and suggestions with us; your voice matters!
+      @media only screen and (min-device-width:320px) and (max-device-width:374px) {
+        u~div .email-container {
+          min-width: 320px !important
+        }
+      }
 
-  Feel free to reach out to our dedicated support team at support@bizcore.com if you have any questions or need assistance.
+      @media only screen and (min-device-width:375px) and (max-device-width:413px) {
+        u~div .email-container {
+          min-width: 375px !important
+        }
+      }
 
-  Stay tuned for exciting updates, upcoming events, and special offers crafted just for you. We can't wait to see you thrive with {{project.name}}.
+      @media only screen and (min-device-width:414px) {
+        u~div .email-container {
+          min-width: 414px !important
+        }
+      }
+    </style>
+    <style type="text/css">
+      @media screen and (max-width:599px) {
+        .email-container {
+          width: 100% !important;
+          margin: auto !important
+        }
 
-  Once again, welcome aboard, and thank you for being a part of our community!
+        .stack-column,
+        .stack-column-center {
+          display: block !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          direction: ltr !important
+        }
 
-  Thanks, you rock!
+        .stack-column-center {
+          text-align: center !important
+        }
+
+        .center-on-narrow {
+          text-align: center !important;
+          display: block !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+          float: none !important
+        }
+
+        table.center-on-narrow {
+          display: inline-block !important
+        }
+      }
+    </style>
+  </head>
+  <body width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; margin: 0; mso-line-height-rule: exactly; padding: 0 !important;">
+    <div style="color:transparent;visibility:hidden;opacity:0;font-size:0px;border:0;max-height:1px;width:1px;margin:0px;padding:0px;border-width:0px!important;display:none!important;line-height:0px!important;">
+      <img border="0" width="1" height="1" src="http://links1.amcn.amcnetworks.com/q/EPOEwFC8SOOpgXpY8pWeiA~~/AARGbAA~/RgRjK1-WPVcDc3BjQgphQpbaSGFn7JvCUiRqYWtlK3Jlc3RyZWFtZnJlZWFjY291bnRAbWVzc2FnZWQuaW9YBAAAACo~" alt="" />
+    </div>
+    <span style="color:transparent;visibility:hidden;display:none;opacity:0;height:0;width:0;font-size:0;">
+        Everything you need to make an informed decision on whether to grab a more powerful plan.
+    </span>
+    <img src="#" style="border:0;width:1px;height:1px;border-width:0px!important;display:none!important;line-height:0!important;" width="1" height="1" />
+    <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #f6f3f6;">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+        <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+          <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+            <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; background-color: #f6f3f6; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; border-collapse: separate !important;" valign="top" align="center" bgcolor="#f6f3f6">
+              <table bgcolor="#f6f3f6" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border: 0px solid transparent; border-radius: 0px; margin: 0 auto;" align="center" id="brick_container" cellspacing="0" cellpadding="0" border="0" width="640" class="email-container">
+                <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; padding-left: 0px; padding-right: 0px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                      <table align="center" cellspacing="0" cellpadding="0" border="0" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                        <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                          <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                            <td width="640" bgcolor="#f6f3f6" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; border: 0px solid transparent; border-radius: 0px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                              <table cellspacing="0" cellpadding="0" border="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                      <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 36px; line-height: 36px; font-size: 36px;"></div>
+                                      <table width="100%" cellspacing="0" cellpadding="0" border="0" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                        <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                          <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                            <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                              <table align="center" cellspacing="0" cellpadding="0" border="0" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; padding-left: 0px; padding-right: 0px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                                      <a href="https://vinnjeru.com" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; text-decoration: none;">
+                                                        <img class="9805a5d76693b9f77c3a77e84c9558ccdb8b5cfe" height="64" width="128" alt="logo" border="0" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; -ms-interpolation-mode: bicubic; border-radius: 0px; max-width: 128px; max-height: 64; margin: auto; display: block;" src="https://vinnjeru.com/images/vinn-logo.png">
+                                                      </a>
+                                                    </td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                      <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 36px; line-height: 36px; font-size: 36px;"></div>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; padding-left: 0px; padding-right: 0px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                      <table width="100%" align="center" cellspacing="0" cellpadding="0" border="0" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                        <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                          <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                            <td width="640" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; border: 0px solid transparent; border-radius: 0px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; border-collapse: separate !important;" valign="top">
+                              <table cellspacing="0" cellpadding="0" border="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; padding-left: 0px; padding-right: 0px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                      <table align="center" cellspacing="0" cellpadding="0" border="0" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                        <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                          <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                            <td width="640" bgcolor="#ffffff" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; border: 0px solid transparent; border-radius: 0px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                              <table cellspacing="0" cellpadding="0" border="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                                      <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 12px; line-height: 12px; font-size: 12px;">
+                                                        <a href="#" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; text-decoration: none;">&nbsp;</a>
+                                                      </div>
+                                                      <table width="100%" cellspacing="0" cellpadding="0" border="0" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                        <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                          <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                            <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                                              <table align="center" cellspacing="0" cellpadding="0" border="0" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                                <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; padding-left: 14px; padding-right: 14px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                                                      <a target="_blank" href="#" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; text-decoration: none;">
+                                                                        <img class="778b98e96067680713eab7a4dc6dc236b13464be" width="612" alt border="0" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; -ms-interpolation-mode: bicubic; border-radius: 0px; width: 100%; height: auto; margin: auto; display: block;" src="https://bucket.mlcdn.com/a/791/791539/images/c051b5dbacea0b9df49f1cd922e7682ab032ebec.png">
+                                                                      </a>
+                                                                    </td>
+                                                                  </tr>
+                                                                </tbody>
+                                                              </table>
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                      <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 12px; line-height: 12px; font-size: 12px;"></div>
+                                                    </td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; padding-left: 0px; padding-right: 0px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                      <table align="center" cellspacing="0" cellpadding="0" border="0" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                        <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                          <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                            <td width="640" bgcolor="#ffffff" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; border: 0px solid transparent; border-radius: 0px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                              <table cellspacing="0" cellpadding="0" border="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                      <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 40px; line-height: 40px; font-size: 40px;"></div>
+                                    </td>
+                                  </tr>
+                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; padding-left: 40px; padding-right: 40px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                      <table width="100%" align="center" cellspacing="0" cellpadding="0" border="0" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                        <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                          <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                            <td width="560" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; border: 0px solid transparent; border-radius: 0px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; border-collapse: separate !important;" valign="top">
+                                              <table cellspacing="0" cellpadding="0" border="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                                      <table cellspacing="0" cellpadding="0" border="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                        <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                          <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                            <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; padding-left: 0px; padding-right: 0px; text-align: center; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" align="center" valign="top">
+                                                              <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 48px;">
+                                                                <span style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #000000; line-height: 48px; font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 40px; text-align: center; font-weight: 700;">Achieve Greatness</span>
+                                                              </div>
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </td>
+                                                  </tr>                                                  
+                                                </tbody>
+                                              </table>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; padding-left: 0px; padding-right: 0px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                      <table align="center" cellspacing="0" cellpadding="0" border="0" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                        <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                          <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                            <td width="640" bgcolor="#ffffff" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; border: 0px solid transparent; border-radius: 0px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                              <table cellspacing="0" cellpadding="0" border="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                  
+                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; padding-left: 40px; padding-right: 40px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                      <table width="100%" align="center" cellspacing="0" cellpadding="0" border="0" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                        <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                          <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                            <td width="560" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; border: 0px solid transparent; border-radius: 0px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; border-collapse: separate !important;" valign="top">
+                                              <table cellspacing="0" cellpadding="0" border="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                    <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                        <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;"
+                                                            valign="top">
+                                                            <div
+                                                                style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 20px; line-height: 20px; font-size: 20px;">
+                                                            </div>
+                                                            <table cellspacing="0" cellpadding="0" border="0" width="100%"
+                                                                style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                                <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                                    <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                                        <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; padding-left: 0px; padding-right: 0px; text-align: left; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;"
+                                                                            align="left" valign="top">
+                                                                            <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 24px;">
+                                                                                <span
+                                                                                    style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #181818; line-height: 24px; font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">
+                                                                                    Dear {{customer}},
+                                                                                </span>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                                      <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 20px; line-height: 20px; font-size: 20px;"></div>
+                                                      <table cellspacing="0" cellpadding="0" border="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                        <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                          <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                            <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; padding-left: 0px; padding-right: 0px; text-align: left; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" align="left" valign="top">
+                                                              <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 24px;">
+                                                                <span style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #181818; line-height: 24px; font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">
+                                                                    We are thrilled to have you join the {{project.name}} family! 🎉
+                                                                </span>
+                                                              </div>
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </td>
+                                                  </tr>
+                                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                                      <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 20px; line-height: 20px; font-size: 20px;"></div>
+                                                    </td>
+                                                  </tr>
+                                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; padding-left: 0px; padding-right: 0px; width: 560px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" width="560" valign="top">
+                                                      <table align="left" cellspacing="0" cellpadding="0" border="0" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                        <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                          <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                            <td width="560" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; border: 0px solid transparent; border-radius: 0px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; border-collapse: separate !important;" valign="top">
+                                                              <table cellspacing="0" cellpadding="0" border="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                                <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                                                      <table cellspacing="0" cellpadding="0" border="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                                        <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                                          <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                                            <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; padding-left: 0px; padding-right: 0px; text-align: left; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" align="left" valign="top">
+                                                                              <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 24px;">
+                                                                                <span style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #181818; line-height: 24px; font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; font-weight: 700;">As a valued member, get ready to unlock a world of possibilities and enjoy the following perks:</span>
+                                                                              </div>
+                                                                            </td>
+                                                                          </tr>
+                                                                        </tbody>
+                                                                      </table>
+                                                                    </td>
+                                                                  </tr>
+                                                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                                                      <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 8px; line-height: 8px; font-size: 8px;"></div>
+                                                                      <table cellspacing="0" cellpadding="0" border="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                                        <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                                          <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                                            <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; padding-left: 0px; padding-right: 0px; text-align: left; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" align="left" valign="top">                                                                              
+                                                                              <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 24px;">
+                                                                                <span style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #181818; line-height: 24px; font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">• Exclusive access to {{project.name}} - {{subscription.name}} plan.</span>
+                                                                              </div>
+                                                                              <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 8px; line-height: 8px; font-size: 8px;"></div>
+                                                                              <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 24px;">
+                                                                                <span style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #181818; line-height: 24px; font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">• Personalized recommendations based on your preferences</span>
+                                                                              </div>
+                                                                              <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 8px; line-height: 8px; font-size: 8px;"></div>
+                                                                              <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 24px;">
+                                                                                <span style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #181818; line-height: 24px; font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">• Regular updates on the latest trends and innovations</span>
+                                                                              </div>
+                                                                            </td>
+                                                                          </tr>
+                                                                        </tbody>
+                                                                      </table>
+                                                                    </td>
+                                                                  </tr>
+                                                                </tbody>
+                                                              </table>
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </td>
+                                                  </tr>
+                                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                                      <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 20px; line-height: 20px; font-size: 20px;"></div>
+                                                      <table cellspacing="0" cellpadding="0" border="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                        <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                          <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                            <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; padding-left: 0px; padding-right: 0px; text-align: left; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" align="left" valign="top">
+                                                              <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 24px;">
+                                                                <span style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #181818; line-height: 24px; font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; font-weight: 700;">Why would someone want to subscribe to {{project.name}}?</span>
+                                                                <span style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #181818; line-height: 24px; font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"> Well, you get to improve your business process. A {{project.name}} - {{subscription.name}} plan immediately provides you with this option, which as you probably know is one of the best growth tactics to increase your sales. </span>
+                                                              </div>
+                                                              <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 24px;"></div>
+                                                              <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 24px;">
+                                                                <span style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #181818; line-height: 24px; font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">Ultimately, all you need to do is simply continue using {{project.name}}. It's the best decision you have made. </span>
+                                                              </div>
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </td>
+                                                  </tr>
+                                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                                      <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 20px; line-height: 20px; font-size: 20px;"></div>
+                                                      <table cellspacing="0" cellpadding="0" border="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                        <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                          <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                            <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; padding-left: 0px; padding-right: 0px; text-align: left; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" align="left" valign="top">
+                                                              <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 24px;">                                                                
+                                                                <span style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #181818; line-height: 24px; font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"> Feel free to reach out to our dedicated support team at <a href="mailto:support@bizcore.com">support@bizcore.com</a> if you have any questions or need assistance.</span>
+                                                              </div>
+                                                              <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 24px;"></div>
+                                                              <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 24px;">
+                                                                <span style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #181818; line-height: 24px; font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">Stay tuned for exciting updates, upcoming events, and special offers crafted just for you. We can't wait to see you thrive with {{project.name}}.</span>
+                                                              </div>
+                                                            <div
+                                                                style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 40px; line-height: 40px; font-size: 40px;">
+                                                            </div>
+                                                              <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 24px;"></div>
+                                                              <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 24px;">
+                                                                <span style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #181818; line-height: 24px; font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">Once again, welcome aboard, and thank you for being a part of our community. You rock!</span>
+                                                              </div>
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                      <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 32px; line-height: 32px; font-size: 32px;"></div>
+                                    </td>
+                                  </tr>
+                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; padding-left: 0px; padding-right: 0px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                      <table align="center" cellspacing="0" cellpadding="0" border="0" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                        <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                          <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                            <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                              <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                <a style="-ms-text-size-adjust: 100%; text-decoration: none; background-color: #286fff; border-radius: 6px; display: inline-block; color: #ffffff; font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; font-weight: 700; line-height: 40px; width: 226px; -webkit-text-size-adjust: none; mso-hide: all;" target="_blank" href="https://vinnjeru.com">Visit Website</a>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                      <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 60px; line-height: 60px; font-size: 60px;"></div>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; padding-left: 0px; padding-right: 0px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                      <table align="center" cellspacing="0" cellpadding="0" border="0" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                        <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                          <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                            <td width="640" bgcolor="#282828" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; border: 0px solid transparent; border-radius: 0px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                              <table cellspacing="0" cellpadding="0" border="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                      <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 40px; line-height: 40px; font-size: 40px;"></div>
+                                    </td>
+                                  </tr>
+                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; padding-left: 40px; padding-right: 40px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                      <table width="100%" align="center" cellspacing="0" cellpadding="0" border="0" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                        <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                          <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                            <td width="560" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; border: 0px solid transparent; border-radius: 0px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; border-collapse: separate !important;" valign="top">
+                                              <table cellspacing="0" cellpadding="0" border="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                                      <table cellspacing="0" cellpadding="0" border="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                        <tbody style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                          <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                                            <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; padding-left: 0px; padding-right: 0px; text-align: left; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" align="left" valign="top">
+                                                              <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 20px;">
+                                                                <span style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #eeeeee; line-height: 20px; letter-spacing: 2%; font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 13px; text-align: left;">We hope this email helps you make an informed decision, whether staying with the {{subscription.name}} plan or changing to whichever plan is best for you. We packed a lot of value into our {{project.name}} product on purpose, so we understand if an upgrade isn't best for you at this time or ever. It's called {{subscription.name}} for a reason. </span>
+                                                              </div>
+                                                              <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 16px; line-height: 16px; font-size: 16px;"></div>
+                                                              <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 20px;">
+                                                                <span style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #eeeeee; line-height: 20px; letter-spacing: 2%; font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 13px; text-align: left;">— The {{company.name}} Team</span>
+                                                              </div>
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                                      <div style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 40px; line-height: 40px; font-size: 40px;"></div>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-align: top; padding-left: 0px; padding-right: 0px; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;" valign="top">
+                      <table align="center" cellspacing="0" cellpadding="0" border="0">
+                        <tbody>
+                          <tr>
+                            <td width="640" bgcolor="#f6f3f6">
+                              <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <div style="height:40px;line-height:40px;font-size: 40px; "></div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <table align="center" cellspacing="0" cellpadding="0" border="0">
+                                        <tbody>
+                                          <tr>
+                                            <td width="144" style="border-collapse:separate !important;">
+                                              <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                <tbody>
+                                                  <tr>
+                                                    <td width="24">
+                                                      <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td>
+                                                              <table align="left" cellspacing="0" cellpadding="0" border="0">
+                                                                <tbody>
+                                                                  <tr>
+                                                                    <td>
+                                                                      <a href="#">
+                                                                        <img width="24" alt="facebook" border="0" style=" border-radius:0px; max-width:24px; height: auto; margin: auto; display: block;" src="https://plugin.markaimg.com/public/cd2f1db5/c5382e345057e92d3b9949a9a7e042a84905d835.png" />
+                                                                      </a>
+                                                                    </td>
+                                                                  </tr>
+                                                                </tbody>
+                                                              </table>
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </td>
+                                                    <td width="24">
+                                                      <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td>
+                                                              <table align="left" cellspacing="0" cellpadding="0" border="0">
+                                                                <tbody>
+                                                                  <tr>
+                                                                    <td style="padding-left:6px;">
+                                                                      <a href="#">
+                                                                        <img width="24" alt="twitter" border="0" style=" border-radius:0px; max-width:24px; height: auto; margin: auto; display: block;" src="https://plugin.markaimg.com/public/cd2f1db5/30efbdda468eb302f5e78e6098c8bbdc72f297c0.png" />
+                                                                      </a>
+                                                                    </td>
+                                                                  </tr>
+                                                                </tbody>
+                                                              </table>
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </td>
+                                                    <td width="24">
+                                                      <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td>
+                                                              <table align="left" cellspacing="0" cellpadding="0" border="0">
+                                                                <tbody>
+                                                                  <tr>
+                                                                    <td style="padding-left:6px;">
+                                                                      <a href="#">
+                                                                        <img width="24" alt="linked-in" border="0" style=" border-radius:0px; max-width:24px; height: auto; margin: auto; display: block;" src="https://plugin.markaimg.com/public/cd2f1db5/190c550e7e893a1a11fde56b9fe86529263508d9.png" />
+                                                                      </a>
+                                                                    </td>
+                                                                  </tr>
+                                                                </tbody>
+                                                              </table>
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </td>
+                                                    <td width="24">
+                                                      <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td>
+                                                              <table align="left" cellspacing="0" cellpadding="0" border="0">
+                                                                <tbody>
+                                                                  <tr>
+                                                                    <td style="padding-left:6px;">
+                                                                      <a href="#">
+                                                                        <img width="24" alt="discord" border="0" style=" border-radius:0px; max-width:24px; height: auto; margin: auto; display: block;" src="https://plugin.markaimg.com/public/cd2f1db5/b0f0e39573df13df67f9aac20624f1759610ac54.png" />
+                                                                      </a>
+                                                                    </td>
+                                                                  </tr>
+                                                                </tbody>
+                                                              </table>
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div style="height:18px;line-height:18px;font-size: 18px; "></div>
+                                    </td>
+                                  </tr>
+                                  <!-- <tr>
+                                    <td>
+                                      <table align="center" cellspacing="0" cellpadding="0" border="0">
+                                        <tbody>
+                                          <tr>
+                                            <td width="243" style="border-collapse:separate !important;">
+                                              <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                <tbody>
+                                                  <tr>
+                                                    <td>
+                                                      <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td style=" text-align:center;">
+                                                              <div style="line-height:20px">
+                                                                <a href="#">
+                                                                  <span style="color: #181818;line-height:20px;font-family:Inter, Helvetica, Arial, sans-serif; font-size:12px;text-align:center;">Blog</span>
+                                                                </a>
+                                                              </div>
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </td>
+                                                    <td>
+                                                      <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td style="padding-left:20px; text-align:center;">
+                                                              <div style="line-height:20px">
+                                                                <a href="#">
+                                                                  <span style="color: #181818;line-height:20px;font-family:Inter, Helvetica, Arial, sans-serif; font-size:12px;text-align:center;">Videos</span>
+                                                                </a>
+                                                              </div>
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </td>
+                                                    <td>
+                                                      <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td style="padding-left:20px; text-align:center;">
+                                                              <div style="line-height:20px">
+                                                                <a href="#">
+                                                                  <span style="color: #181818;line-height:20px;font-family:Inter, Helvetica, Arial, sans-serif; font-size:12px;text-align:center;">Academy</span>
+                                                                </a>
+                                                              </div>
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </td>
+                                                    <td>
+                                                      <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td style="padding-left:20px; text-align:center;">
+                                                              <div style="line-height:20px">
+                                                                <a href="#">
+                                                                  <span style="color: #181818;line-height:20px;font-family:Inter, Helvetica, Arial, sans-serif; font-size:12px;text-align:center;">Community</span>
+                                                                </a>
+                                                              </div>
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr> -->
+                                  <tr>
+                                    <td>
+                                      <div style="height:16px;line-height:16px;font-size: 16px; "></div>
+                                      <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td style="padding-left:30px;padding-right:30px; text-align:center;">
+                                              <div style="line-height:20px">
+                                                <span style="color: #181818;line-height:20px;font-family:Inter, Helvetica, Arial, sans-serif; font-size:12px;text-align:center;">515 Congress Ave, Suite 1050, Nairobi Kenya. <br />
+                                                     {{project.name}}™ © {{company.name}}, Inc. All rights reserved. 
+                                                    </span>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div style="height:20px;line-height:20px;font-size: 20px; "></div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <table align="center" cellspacing="0" cellpadding="0" border="0">
+                                        <tbody>
+                                          <tr>
+                                            <td width="157" style="border-collapse:separate !important;">
+                                              <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                <tbody>
+                                                  <tr>
+                                                    <td>
+                                                      <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td style=" text-align:center;">
+                                                              <div style="line-height:16px">
+                                                                <a href="#">
+                                                                  <span style="color: #767676;line-height:16px;font-family:Inter, Helvetica, Arial, sans-serif; font-size:10px;text-align:center;">Terms</span>
+                                                                </a>
+                                                              </div>
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </td>
+                                                    <td>
+                                                      <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td style="padding-left:16px; text-align:center;">
+                                                              <div style="line-height:16px">
+                                                                <a href="#">
+                                                                  <span style="color: #767676;line-height:16px;font-family:Inter, Helvetica, Arial, sans-serif; font-size:10px;text-align:center;">Privacy</span>
+                                                                </a>
+                                                              </div>
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </td>
+                                                    <!-- <td>
+                                                      <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td style="padding-left:16px; text-align:center;">
+                                                              <div style="line-height:16px">
+                                                                <a href="#">
+                                                                  <span style="color: #767676;line-height:16px;font-family:Inter, Helvetica, Arial, sans-serif; font-size:10px;text-align:center;">Unsubscribe</span>
+                                                                </a>
+                                                              </div>
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </td> -->
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div style="height:48px;line-height:48px;font-size:48px;"></div>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <img border="0" width="1" height="1" alt="" src="http://links1.amcn.amcnetworks.com/q/46spcN5MIg0_Xv0-GLkbKw~~/AARGbAA~/RgRjK1-WPlcDc3BjQgphQpbaSGFn7JvCUiRqYWtlK3Jlc3RyZWFtZnJlZWFjY291bnRAbWVzc2FnZWQuaW9YBAAAACo~">
+  </body>
+</html>
 {% endblock %}
