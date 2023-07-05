@@ -10,10 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-from datetime import timedelta
-from pathlib import Path
 import os
 import environ
+
+from datetime import timedelta
+from pathlib import Path
+from celery.schedules import crontab
 
 # load environment variables
 env = environ.Env()
@@ -240,6 +242,16 @@ CELERY_RESULT_BACKEND = os.environ.get('CELERY_BROKER', 'redis://redis:6379/0')
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Africa/Nairobi'
+CELERY_BEAT_SCHEDULE = {
+    'one-week-invoice-due': {
+        'task': 'subscription.tasks.remind_one_week_invoice_due',
+        'schedule': 15,
+        'options': {
+            'expires': 30, #cancel after x seconds if it fails
+        },
+        }
+    }
 
 # Email service configuration
 TEMPLATED_EMAIL_BACKEND = 'templated_email.backends.vanilla_django.TemplateBackend'
