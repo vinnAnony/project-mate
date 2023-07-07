@@ -42,3 +42,30 @@ docker pull vinnjeru/bizcore-django
 ```yaml
 docker run -it -p 8111:8111 --env-file .env vinnjeru/bizcore-django
 ```
+
+#### Creating database and database user
+
+```yaml
+CREATE DATABASE bizcore;
+
+CREATE USER bizcore_user WITH PASSWORD 'pa$$word';
+
+GRANT ALL PRIVILEGES ON DATABASE bizcore TO bizcore_user;
+```
+
+- Modify a few of the connection settings for your user to speed up database operations.
+
+```yaml
+ALTER ROLE bizcore_user SET client_encoding TO 'utf8';
+
+ALTER ROLE bizcore_user SET default_transaction_isolation TO 'read committed';
+
+ALTER ROLE bizcore_user SET timezone TO 'UTC';
+```
+
+> In case you get migration issues (permission denied for schema public), run the below command to add db user as the database owner
+
+```yaml
+GRANT CREATE ON SCHEMA public TO bizcore_user;
+ALTER DATABASE bizcore OWNER TO bizcore_user;
+```
