@@ -69,3 +69,17 @@ ALTER ROLE bizcore_user SET timezone TO 'UTC';
 GRANT CREATE ON SCHEMA public TO bizcore_user;
 ALTER DATABASE bizcore OWNER TO bizcore_user;
 ```
+
+##### Running Celery
+
+> Run celery scheduler - for periodic tasks
+
+```yaml
+celery -A bizcore  beat -l info
+```
+
+> Run celery background worker
+
+```yaml
+celery -A bizcore worker -l info
+```

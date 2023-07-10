@@ -253,8 +253,8 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Africa/Nairobi'
 CELERY_BEAT_SCHEDULE = {
     'one-week-invoice-due': {
-        'task': 'subscription.tasks.remind_one_week_invoice_due',
-        'schedule': 15,
+        'task': 'one_week_due_invoice_reminder',
+        'schedule': crontab(day_of_week="0-6", hour=6, minute=0),#everyday at 6:00 am
         'options': {
             'expires': 30, #cancel after x seconds if it fails
         },

@@ -446,8 +446,8 @@
             <table class="email-content" width="100%" cellpadding="0" cellspacing="0" role="presentation">
                 <tr>
                 <td class="email-masthead">
-                    <a href="https://example.com" class="f-fallback email-masthead_name">
-                    {{project.name}}
+                    <a href="{{company.website_url}}" class="f-fallback email-masthead_name">
+                    {{company.name}}
                 </a>
                 </td>
                 </tr>
@@ -520,7 +520,7 @@
                                     </th>
                                     </tr>
                                     <!--invoice item-->
-                                    {% for invoice_line in invoice_lines %}
+                                    {% for invoice_line in invoice.invoice_lines %}
                                     <tr>
                                     <td width="80%" class="purchase_item"><span class="f-fallback">{{invoice_line.description}}</span></td>
                                     <td class="align-right" width="20%" class="purchase_item"><span class="f-fallback">{{invoice_line.amount}}</span></td>
@@ -539,7 +539,7 @@
                                 </td>
                             </tr>
                             </table>
-                            <p>If you have any questions about this invoice, simply reply to this email or reach out to our <a href="{{support_url}}">support team</a> for help.</p>
+                            <p>If you have any questions about this invoice, simply reply to this email or reach out to our <a href="{{company.support_url}}">support team</a> for help.</p>
                             <p>Cheers,
                             <br>The {{company.name}} team</p>
                             <!-- Sub copy -->

@@ -8,7 +8,7 @@ from mail.email import send_email
 @shared_task(name='one_week_due_invoice_reminder')
 def remind_one_week_invoice_due():
     current_date = datetime.now().date()
-    seven_days_from_today = current_date + timedelta(days=7) 
+    seven_days_from_today = current_date + timedelta(days=7)
     # fetch pending invoices where due date - today is 7 days
     invoices = Invoice.objects.filter(due_date__date=seven_days_from_today,status=Invoice.InvoiceStatus.Pending)
     
@@ -30,8 +30,7 @@ def remind_one_week_invoice_due():
                 'amount':invoice.total_paid,
             }if invoice.total_paid else {},            
         ]
-        
-        total_amount_due = (invoice.total_amount + invoice.total_tax_amount) - invoice.total_paid
+        total_amount_due = decimal.Decimal(invoice.total_amount + invoice.total_tax_amount) - decimal.Decimal(invoice.total_paid)
         
         # send reminder email
         send_email(
