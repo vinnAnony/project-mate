@@ -1,3 +1,4 @@
+{% load humanize %}
 {% block subject %}Your {{project.name}} - {{subscription.name}} plan will be due in {{due_days}}{% endblock %}
 {% block html %}
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -468,7 +469,7 @@
                                     <tr>
                                     <td class="attributes_item">
                                         <span class="f-fallback">
-                <strong>Amount Due:</strong> {{invoice.total_amount_due}}
+                <strong>Amount Due:</strong> {{invoice.currency}} {{invoice.total_amount_due|intcomma}}
                 </span>
                                     </td>
                                     </tr>
@@ -523,7 +524,7 @@
                                     {% for invoice_line in invoice.invoice_lines %}
                                     <tr>
                                     <td width="80%" class="purchase_item"><span class="f-fallback">{{invoice_line.description}}</span></td>
-                                    <td class="align-right" width="20%" class="purchase_item"><span class="f-fallback">{{invoice_line.amount}}</span></td>
+                                    <td class="align-right" width="20%" class="purchase_item"><span class="f-fallback">{{invoice_line.amount|intcomma}}</span></td>
                                     </tr>
                                     {% endfor %}                                    
                                     <!--invoice item END-->
@@ -532,7 +533,7 @@
                                         <p class="f-fallback purchase_total purchase_total--label">Total</p>
                                     </td>
                                     <td width="20%" class="purchase_footer" valign="middle">
-                                        <p class="f-fallback purchase_total">{{invoice.total_amount_due}}</p>
+                                        <p class="f-fallback purchase_total">{{invoice.total_amount_due|intcomma}}</p>
                                     </td>
                                     </tr>
                                 </table>

@@ -45,6 +45,7 @@ def remind_one_week_invoice_due():
                 'invoice':{
                     'invoice_no':invoice.invoice_no,
                     'generated_at':current_date.strftime('%d-%m-%Y'),
+                    'currency':'Ksh',
                     'invoice_lines':invoice_lines,
                     'total_amount_due':total_amount_due,
                     'due_date':invoice.due_date.strftime('%d-%m-%Y'),
