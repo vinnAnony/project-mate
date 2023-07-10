@@ -96,9 +96,9 @@ class Invoice(models.Model):
     subscription_id = models.ForeignKey(Subscription, on_delete=models.DO_NOTHING,related_name='subscriptions')    
     status = models.CharField(max_length=100, choices=InvoiceStatus.choices, null=False, blank=False,default=InvoiceStatus.Pending)
     total_amount = models.DecimalField(max_digits=11, decimal_places=2, null=False, blank=False,help_text='Amount excluding tax')
-    tax_percentage = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)#,default=16
-    total_tax_amount = models.DecimalField(max_digits=11, decimal_places=2, null=True, blank=True)
-    total_paid = models.DecimalField(max_digits=11, decimal_places=2, null=True, blank=True)
+    tax_percentage = models.DecimalField(max_digits=5, decimal_places=2, default=0)#,default=16
+    total_tax_amount = models.DecimalField(max_digits=11, decimal_places=2, default=0)
+    total_paid = models.DecimalField(max_digits=11, decimal_places=2, default=0)
     generated_at = models.DateTimeField(auto_now_add=True)
     due_date = models.DateTimeField(null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
