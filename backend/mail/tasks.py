@@ -2,6 +2,11 @@ from templated_email import send_templated_mail
 from celery import shared_task
 from celery.signals import task_failure
 
+import ntpath
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+
 import logging
 logger = logging.getLogger(__name__)
  
@@ -35,6 +40,34 @@ def _async_send_email(context:dict, template:str, from_email:str, recipients:lis
         context=context,
         template_name=template,
     )
+    
+@shared_task
+def _async_send_attachment_email(subject:str, context:dict, template:str, from_email:str, recipients:list[str],attachment_file_path:str) ->None:
+
+    # Render the HTML email template
+    html_message = render_to_string(template, context)
+
+    # Create the plain text version of the email (optional)
+    plain_message = strip_tags(html_message)
+
+    # Create an EmailMultiAlternatives object
+    email = EmailMultiAlternatives(
+        subject=subject,
+        from_email=from_email,
+        body=plain_message,
+        to=recipients
+    )
+
+    # Attach the PDF file to the email
+    with open(attachment_file_path, 'rb') as f:
+        email.attach(ntpath.basename(attachment_file_path), f.read(), 'application/pdf')
+
+    # Attach the HTML message as an alternative
+    email.attach_alternative(html_message, 'text/html')
+
+    # Send the email
+    email.send()
+    
 
 def _on_mail_error_callback(sender=None, task_id=None, exception=None, **kwargs):
     # TODO: - use a global application logging service to log any errors that occur during email sending. 

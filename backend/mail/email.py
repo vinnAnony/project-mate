@@ -1,6 +1,6 @@
 import os
 from django.conf import settings
-from mail.tasks import _async_send_email
+from mail.tasks import _async_send_email,_async_send_attachment_email
 
 base_dir = os.path.abspath(os.path.dirname(__file__))
 
@@ -24,6 +24,19 @@ def send_email(context:dict, template:str, recipients:list[str]) -> str:
         template=template,
         from_email=settings.EMAIL_HOST_USER,
         recipients=recipients
+    )
+
+    return task.id
+
+def send_email_with_attachment(context:dict, template:str,subject:str, recipients:list[str],attachment_file_path:str) -> str:
+         
+    task = _async_send_attachment_email.delay(
+        context=context,
+        template=template,
+        subject=subject,
+        from_email=settings.EMAIL_HOST_USER,
+        recipients=recipients,
+        attachment_file_path=attachment_file_path,
     )
 
     return task.id

@@ -7,7 +7,7 @@ import os
 import pdfkit
 
 from subscription.models import *
-from mail.email import send_email
+from mail.email import send_email,send_email_with_attachment
 
 @shared_task(name='one_week_due_invoice_reminder')
 def remind_one_week_invoice_due():
@@ -60,7 +60,7 @@ def remind_one_week_invoice_due():
         )
         
 @shared_task
-def generate_invoice_pdf(pk):
+def generate_and_email_invoice_pdf(pk):
     current_date = datetime.now().date()
     #fetch that invoice
     invoice = Invoice.objects.get(pk=pk)
@@ -135,3 +135,26 @@ def generate_invoice_pdf(pk):
             
         #Save the PDF file   
         pdfkit.from_string(html, pdf_save_path, configuration=config, options=options)
+        
+        send_email_with_attachment(
+            subject='Customer Invoice',
+            context={
+                'customer': invoice.subscription_id.customer_id.name,
+                'project': model_to_dict(invoice.subscription_id.subscription_package_id.project_id),
+                'subscription': model_to_dict(invoice.subscription_id.subscription_package_id),
+                'company':{
+                    'name':'BizCore'
+                },
+                'invoice':{
+                    'invoice_no':invoice.invoice_no,
+                    'generated_at':current_date.strftime('%d-%m-%Y'),
+                    'currency':'Ksh',
+                    'invoice_lines':invoice_lines,
+                    'total_amount_due':total_amount_due,
+                    'due_date':invoice.due_date.strftime('%d-%m-%Y'),
+                }                
+            },
+            template='email/customer_invoice.html',
+            recipients=[invoice.subscription_id.customer_id.email],
+            attachment_file_path = pdf_save_path
+        )
