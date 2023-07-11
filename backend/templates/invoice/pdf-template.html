@@ -1,0 +1,186 @@
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>{{customer.name}}</title>
+
+    <style>
+      .container {
+        margin-left: 50px;
+        margin-right: 50px;
+      }
+
+      table {
+        caption-side: bottom;
+        border-collapse: collapse;
+      }
+
+      th {
+        text-align: inherit;
+        text-align: -webkit-match-parent;
+      }
+
+      thead,
+      tbody,
+      tfoot,
+      tr,
+      td,
+      th {
+        border-color: inherit;
+        border-style: solid;
+        border-width: 0;
+      }
+
+      .table {
+        --bs-table-bg: transparent;
+        --bs-table-striped-color: #495057;
+        --bs-table-striped-bg: #f8f9fa;
+        --bs-table-active-color: #495057;
+        --bs-table-active-bg: #f8f9fa;
+        --bs-table-hover-color: #495057;
+        --bs-table-hover-bg: #f8f9fa;
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #495057;
+        vertical-align: top;
+        border-color: #eff2f7;
+      }
+      .table > :not(caption) > * > * {
+        padding: 0.75rem 0.75rem;
+        background-color: var(--bs-table-bg);
+        background-image: -webkit-gradient(
+          linear,
+          right top,
+          right bottom,
+          from(var(--bs-table-accent-bg)),
+          to(var(--bs-table-accent-bg))
+        );
+        background-image: linear-gradient(
+          var(--bs-table-accent-bg),
+          var(--bs-table-accent-bg)
+        );
+        border-bottom-width: 0px;
+      }
+      .table > tbody {
+        vertical-align: inherit;
+      }
+      .table > thead {
+        vertical-align: bottom;
+      }
+      .table > :not(:last-child) > :last-child > * {
+        border-bottom-color: #eff2f7;
+      }
+
+      .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .d-table {
+        display: table !important;
+      }
+
+      .table th {
+        font-weight: 600;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Invoice: {{customer.name}}</h1>
+      <br />
+      <hr />
+      <br />
+      <br />
+
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <img
+                  src="{{company.logo}}"
+                  style="width: 100%; max-width: 100px"
+                />
+              </td>
+              <td></td>
+              <td></td>
+              <td>
+                Invoice #: <strong>{{invoice.invoice_no}}</strong><br />
+                Created: {{invoice.generated_at}}<br />
+                Due: {{invoice.due_date}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <br />
+
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <strong>{{customer.name}}</strong> <br />
+                {{customer.address}}<br />
+                {% comment %} {{customer.province}}, {{customer.postalCode}} <br/ > {% endcomment %}
+                {{customer.email}} <br/ > {{customer.phone_number}}
+                <br />
+                <br />
+                {% comment %} Tax Number: {{customer.taxNumber}} {% endcomment %}
+              </td>
+
+              <td>
+                <strong>{{customer.contact_name}}</strong> <br />
+                {{customer.address}}<br />
+                {% comment %} {{customer.province}}, {{customer.postalCode}}<br /> {% endcomment %}
+                {{customer.email}} <br/ >
+                {{customer.phone_number}}
+                <br />
+                <br />
+                {% comment %} Tax Number: {{customer.taxNumber}} {% endcomment %}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <br />
+      <br />
+      <h1>Invoice Items</h1>
+      <br />
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th></th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {% for invoice_line in invoice.invoice_lines %}
+            <tr>
+              <td>{{invoice_line.description}}</td>
+              <td></td>
+              <td>{{invoice_line.amount|intcomma}}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+              <td></td>
+              <td></td>
+              <td><strong> Total: {{invoice.currency}} {{invoice.total_amount_due|intcomma}} </strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br />
+      <br />
+      {% comment %} <p>{{invoice.notes}}</p> {% endcomment %}
+    </div>
+  </body>
+</html>

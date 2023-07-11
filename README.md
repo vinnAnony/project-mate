@@ -72,14 +72,32 @@ ALTER DATABASE bizcore OWNER TO bizcore_user;
 
 ##### Running Celery
 
-> Run celery scheduler - for periodic tasks
+- Run celery scheduler - for periodic tasks
 
 ```yaml
 celery -A bizcore  beat -l info
 ```
 
-> Run celery background worker
+- Run celery background worker
 
 ```yaml
 celery -A bizcore worker -l info
 ```
+
+#### PDF generation
+
+- Install dependencies
+
+  > (Ubuntu 20.04)
+
+```yaml
+sudo apt-get update
+
+sudo apt-get install xvfb
+
+wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb
+
+sudo apt install ./wkhtmltox_0.12.6-1.focal_amd64.deb
+```
+
+> Make sure you clean up, delete the downloaded installer when done

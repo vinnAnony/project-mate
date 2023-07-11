@@ -4,6 +4,7 @@ from django.forms.models import model_to_dict
 
 from .models import *
 from mail.email import send_email
+from .tasks import generate_invoice_pdf
 
 from datetime import datetime, timedelta
 import logging
@@ -34,6 +35,8 @@ class SubscriptionSerializer(serializers.ModelSerializer):
                 due_date = datetime.now() + timedelta(days=14),
                 generated_by = subscription.created_by,
             )
+        # generate pdf
+        generate_invoice_pdf.delay(invoice.pk)
         
         # send new subscription email
         send_email(

@@ -84,7 +84,7 @@ ROOT_URLCONF = 'bizcore.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -166,6 +166,9 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -274,3 +277,7 @@ EMAIL_HOST_USER = env("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 EMAIL_DEFAULT_FROM_EMAIL = env("EMAIL_DEFAULT_FROM_EMAIL")
 EMAIL_DEFAULT_REPLY_TO = env("EMAIL_DEFAULT_REPLY_TO")
+
+# PDF generation configuration
+PDF_FILES_FOLDER = os.path.join(MEDIA_ROOT, 'pdf')
+WKHTMLTOPDF_LOCATION = env("WKHTMLTOPDF_LOCATION")
