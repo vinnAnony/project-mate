@@ -8,9 +8,9 @@ x-environment: &commonEnvironment
   - DATABASE_PASSWORD=${DB_PASSWORD}
   - DATABASE_HOST=${DB_HOST}
   - DATABASE_PORT=${DB_PORT}
-  - ADMIN_USERNAME=${ADMIN_USERNAME}
-  - ADMIN_EMAIL=${ADMIN_EMAIL}
-  - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+  - DJANGO_SUPERUSER_USERNAME=${DJANGO_SUPERUSER_USERNAME}
+  - DJANGO_SUPERUSER_EMAIL=${DJANGO_SUPERUSER_EMAIL}
+  - DJANGO_SUPERUSER_PASSWORD=${DJANGO_SUPERUSER_PASSWORD}
   - CELERY_BROKER=${CELERY_BROKER}
   - SECRET_KEY=${SECRET_KEY}
   - EMAIL_HOST=${EMAIL_HOST}
@@ -32,7 +32,56 @@ services:
       - .env
 
     ports:
-      - "8005:${APP_PORT}"
+      - "8000:${APP_PORT}"
 
-    command: sh -c "/opt/venv/bin/python manage.py collectstatic &&
-                    /opt/venv/bin/gunicorn bizcore.wsgi:application --bind 0.0.0.0:${APP_PORT}"
+    command: sh -c "python manage.py migrate &&
+                    python manage.py createsuperuser --first_name=${DJANGO_SUPERUSER_FIRSTNAME} --last_name=${DJANGO_SUPERUSER_LASTNAME} --username ${DJANGO_SUPERUSER_USERNAME} --email ${DJANGO_SUPERUSER_EMAIL} --noinput &&
+                    python manage.py collectstatic &&
+                    gunicorn bizcore.wsgi:application --bind 0.0.0.0:${APP_PORT}"
+
+  celery:
+
+    build: .
+
+    depends_on:
+      - application
+      - redis
+    
+    command: sh -c "celery -A bizcore worker -l info &&
+                    celery -A bizcore  beat -l info"
+
+    environment: *commonEnvironment
+
+  redis:
+
+    image: redis:7-alpine
+    restart: always
+
+  database:
+
+    image: postgres:alpine
+    restart: always
+
+    expose:
+      - 5432
+
+    environment:
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_DB=${DATABASE_DB}
+
+    healthcheck:
+      test: ["CMD", "pg_isready",'-U${DATABASE_USER}', '-d${DATABASE_DB}']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+    volumes:
+      - type: volume
+        source: pgdata
+        target: /var/lib/postgresql/data
+
+volumes:
+
+  pgdata:
+    driver: local
