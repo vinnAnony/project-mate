@@ -2,3 +2,12 @@
 venv/
 *.py[cod]
 __pycache__
+
+# celery beat files
+celerybeat-schedule*
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3 
+db.sqlite3-journal

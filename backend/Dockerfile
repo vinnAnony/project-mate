@@ -1,29 +1,41 @@
-# base image
-FROM python:3.11.4-alpine
+# Use an official Python runtime as the base image
+FROM python:3.11.4-slim
 
-# set environment variables  
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-# copy whole project to docker home directory. 
-COPY . /app
-
-# set the work directory location of our app in the container
+# Set the working directory in the container
 WORKDIR /app
 
-# set up virtual environment
-RUN python -m venv /opt/venv
+# Required packages for psycopg2
+RUN apt-get update
+RUN apt-get install libpq-dev python3-dev gcc -y
 
-# run this command to install all dependencies  
-RUN /opt/venv/bin/pip install pip --upgrade && \
-    /opt/venv/bin/pip install -r requirements.txt
+# Install required packages for pdf generation
+RUN apt-get install xvfb -y
 
-# ENV VIRTUAL_ENV /venv
-ENV PATH /venv/bin:$PATH
+RUN apt-get install wget -y
+RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb
 
-RUN chmod +x entrypoint.sh
+RUN wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+RUN dpkg -i ./libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+RUN rm ./libssl1.1_1.1.1f-1ubuntu2_amd64.deb
 
-EXPOSE 8111
+RUN wget http://archive.ubuntu.com/ubuntu/pool/main/libj/libjpeg-turbo/libjpeg-turbo8_2.0.3-0ubuntu1_amd64.deb
+RUN dpkg -i ./libjpeg-turbo8_2.0.3-0ubuntu1_amd64.deb
+RUN rm ./libjpeg-turbo8_2.0.3-0ubuntu1_amd64.deb
+
+RUN apt-get install libssl1.1 libjpeg-turbo8 -y
+RUN apt-get install ./wkhtmltox_0.12.6-1.focal_amd64.deb -y
+RUN rm ./wkhtmltox_0.12.6-1.focal_amd64.deb
+
+# Copy the requirements.txt file and install dependencies
+COPY requirements.txt .
+RUN pip install pip --upgrade
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the entire Django project to the container
+COPY . .
+
+
+EXPOSE 8000
 
 # entrypoint
 CMD ["sh", "entrypoint.sh"]

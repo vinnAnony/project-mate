@@ -4,7 +4,7 @@ A web app to help in management of an organization - especially software dev tea
 
 ## Features
 
-BizMate provides the following features:
+BizCore provides the following features:
 
 - Create, edit and delete projects
 - Create, edit and delete clients
@@ -16,7 +16,7 @@ BizMate provides the following features:
 - User authentication and authorization
 - User profile management
 
-> To install BizMate, follow these steps:
+> To install BizCore, follow these steps:
 
 - Create a virtual environment and activate it:
 
@@ -70,7 +70,7 @@ GRANT CREATE ON SCHEMA public TO bizcore_user;
 ALTER DATABASE bizcore OWNER TO bizcore_user;
 ```
 
-##### Running Celery
+#### Running Celery
 
 - Run celery scheduler - for periodic tasks
 
