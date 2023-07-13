@@ -21,9 +21,9 @@ deploy(){
 	getent passwd
 	echo "list of users <<<"
 
-    gunicorn bizcore.wsgi
+	celery -A bizcore.celery:app worker --uid 65534
 
-	celery -A bizcore.celery:app worker --loglevel=info --uid 65534
+    gunicorn bizcore.wsgi
 }
 
 deploy
