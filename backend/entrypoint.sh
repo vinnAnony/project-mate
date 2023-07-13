@@ -6,9 +6,6 @@ deploy(){
 
 	python manage.py createsuperuser --first_name=${DJANGO_SUPERUSER_FIRSTNAME} --last_name=${DJANGO_SUPERUSER_LASTNAME} --username ${DJANGO_SUPERUSER_USERNAME} --email ${DJANGO_SUPERUSER_EMAIL} --noinput
 
-	# celery -A bizcore worker
-	# celery -A bizcore  beat
-
 	python manage.py collectstatic
 
 	#Print wkhtmltopdf installation path
@@ -20,8 +17,6 @@ deploy(){
 	echo "list of users >>>"
 	getent passwd
 	echo "list of users <<<"
-
-	celery -A bizcore.celery:app worker --uid 65534
 
     gunicorn bizcore.wsgi
 }
