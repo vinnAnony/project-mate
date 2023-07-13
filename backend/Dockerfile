@@ -37,5 +37,7 @@ COPY . .
 
 EXPOSE 8000
 
+RUN chmod 666 /app/warning.log
+
 # entrypoint
 CMD ["sh", "entrypoint.sh"]
