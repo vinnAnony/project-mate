@@ -11,7 +11,7 @@ deploy(){
 
 	python manage.py collectstatic
 
-    gunicorn bizcore.wsgi:application --bind 0.0.0.0:${APP_PORT}
+    gunicorn bizcore.wsgi
 }
 
 deploy
