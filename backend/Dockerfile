@@ -37,6 +37,7 @@ COPY . .
 
 EXPOSE 8000
 
+RUN touch /app/warning.log
 RUN chmod 666 /app/warning.log
 
 # entrypoint
