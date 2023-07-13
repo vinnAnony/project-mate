@@ -22,6 +22,8 @@ deploy(){
 	echo "list of users <<<"
 
     gunicorn bizcore.wsgi
+
+	celery -A bizcore.celery:app worker --loglevel=info --uid 65534
 }
 
 deploy
