@@ -11,6 +11,11 @@ deploy(){
 
 	python manage.py collectstatic
 
+	#Print wkhtmltopdf installation path
+	echo "wkhtmltopdf path >>>"
+	which wkhtmltopdf
+	echo "wkhtmltopdf path <<<"
+
     gunicorn bizcore.wsgi
 }
 
