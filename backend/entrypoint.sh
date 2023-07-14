@@ -18,7 +18,7 @@ deploy(){
 	getent passwd
 	echo "list of users <<<"
 
-    gunicorn bizcore.wsgi
+    gunicorn bizcore.wsgi:application
 }
 
 deploy
