@@ -6,17 +6,20 @@ A web app to help in management of an organization - especially software dev tea
 
 BizCore provides the following features:
 
+- [x] User authentication and authorization
 - [x] Create, edit and delete projects
 - [x] Create, edit and delete clients
 - [x] Linking clients to their customized projects (company products)
-- [x] Create, edit and delete client subscription packages
+- [x] Manage client subscriptions to projects
 - [x] Create and send invoices to clients (via email & Whatsapp)
+  - [x] via email
+  - [ ] via Whatsapp
+- [x] Automated email reminders for almost due invoices
+  - [x] (1 week)
 - [ ] Create, edit and delete payments -from clients
-- [ ] Store encrypted credentials with MFA
-- [x] User authentication and authorization
+- [ ] Encrypted credentials manager with MFA
 - [ ] User profile management
-
-> To install BizCore, follow these steps:
+### Setting up:
 
 - Create a virtual environment and activate it:
 
@@ -30,17 +33,19 @@ BizCore provides the following features:
   ```bash
           pip install -r requirements.txt
   ```
-  > To run docker image:
-- Pull docker container image:
+#### Using Docker:
+- Navigate to the **`backend`** folder.
+
+- Build docker image from the Dockerfile:
 
 ```yaml
-docker pull vinnjeru/bizcore-django
+docker build -t bizcore-django .
 ```
 
 - Run docker container image:
 
 ```yaml
-docker run -it -p 8111:8111 --env-file .env vinnjeru/bizcore-django
+docker run -it -p 8000:8000 --env-file .env bizcore-django
 ```
 
 #### Creating database and database user
