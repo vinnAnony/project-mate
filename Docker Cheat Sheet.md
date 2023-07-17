@@ -52,10 +52,10 @@ docker run -it -p 8000:8000 bizcore-django:1.0
 docker rmi image-id image-id2 image-id3 -f
 ```
 
-#### Create and start container from docker image using Docker Compose || build the services
+#### Create and start container from docker image using Docker Compose : --build => build the services, -d =>detach mode(to be able to execute some commands in the same terminal)
 
 ```yaml
-docker compose up || docker compose up --build
+docker compose up || docker compose up -d --build
 ```
 
 ### Uploading docker image to Docker Hub

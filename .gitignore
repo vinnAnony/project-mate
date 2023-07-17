@@ -134,3 +134,6 @@ celerybeat-schedule*
 
 # media files
 media/
+
+# staticfiles
+staticfiles/

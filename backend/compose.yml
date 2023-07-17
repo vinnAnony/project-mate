@@ -3,85 +3,80 @@ x-environment: &commonEnvironment
   - APP_PORT=${APP_PORT}
   - DEBUG=${DEBUG}
   - ALLOWED_HOSTS=${ALLOWED_HOSTS}
-  - DATABASE_NAME=${DB_NAME}
-  - DATABASE_USER=${DB_USER}
-  - DATABASE_PASSWORD=${DB_PASSWORD}
-  - DATABASE_HOST=${DB_HOST}
-  - DATABASE_PORT=${DB_PORT}
+  - DB_NAME=${DB_NAME}
+  - DB_USER=${DB_USER}
+  - DB_PASSWORD=${DB_PASSWORD}
+  - DB_HOST=${DB_HOST}
+  - DB_PORT=${DB_PORT}
   - DJANGO_SUPERUSER_USERNAME=${DJANGO_SUPERUSER_USERNAME}
   - DJANGO_SUPERUSER_EMAIL=${DJANGO_SUPERUSER_EMAIL}
   - DJANGO_SUPERUSER_PASSWORD=${DJANGO_SUPERUSER_PASSWORD}
   - CELERY_BROKER=${CELERY_BROKER}
   - SECRET_KEY=${SECRET_KEY}
-  - EMAIL_HOST=${EMAIL_HOST}
-  - EMAIL_USE_TLS=${EMAIL_USE_TLS}
-  - EMAIL_PORT=${EMAIL_PORT}
-  - EMAIL_USE_SSL=${EMAIL_USE_SSL}
-  - EMAIL_HOST_USER=${EMAIL_HOST_USER}
-  - EMAIL_HOST_PASSWORD=${EMAIL_HOST_PASSWORD}
-  - EMAIL_SENDER=${EMAIL_SENDER}
 
 services:
 
   application:
-    build: .
-    
+    build: .    
     environment: *commonEnvironment
-
     env_file:
       - .env
-
     ports:
       - "8000:${APP_PORT}"
-
-    command: sh -c "python manage.py migrate &&
-                    python manage.py createsuperuser --first_name=${DJANGO_SUPERUSER_FIRSTNAME} --last_name=${DJANGO_SUPERUSER_LASTNAME} --username ${DJANGO_SUPERUSER_USERNAME} --email ${DJANGO_SUPERUSER_EMAIL} --noinput &&
-                    python manage.py collectstatic &&
-                    gunicorn bizcore.wsgi:application --bind 0.0.0.0:${APP_PORT}"
-
-  celery:
-
-    build: .
-
+    command: sh -c "echo '<<< WKHTMLTOPDF installation path >>>' &&
+                echo 'Insert this path in WKHTMLTOPDF_LOCATION environment variable.' &&
+                which wkhtmltopdf &&
+                echo '>>> WKHTMLTOPDF installation path <<<' &&
+                gunicorn bizcore.wsgi:application --bind 0.0.0.0:${APP_PORT}"
+    volumes:
+      - .:/app    
     depends_on:
-      - application
+      - database
       - redis
-    
-    command: sh -c "celery -A bizcore worker -l info &&
-                    celery -A bizcore  beat -l info"
+      - celery-worker
 
-    environment: *commonEnvironment
+  celery-worker:
+    build: .   
+    command: sh -c "celery -A bizcore worker -l info"
+    volumes:
+      - .:/app
+    depends_on:
+      - database
+      - redis 
+  
+  celery-beat:
+    build: .   
+    command: sh -c "celery -A bizcore beat -l info"
+    volumes:
+      - .:/app
+    depends_on:
+      - database
+      - redis
+      - celery-worker
 
   redis:
-
     image: redis:7-alpine
     restart: always
 
   database:
-
     image: postgres:alpine
     restart: always
-
     expose:
       - 5432
-
     environment:
-      - POSTGRES_USER=${DATABASE_USER}
-      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
-      - POSTGRES_DB=${DATABASE_DB}
-
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
     healthcheck:
-      test: ["CMD", "pg_isready",'-U${DATABASE_USER}', '-d${DATABASE_DB}']
+      test: ["CMD", "pg_isready",'-U${DB_USER}', '-d${DB_NAME}']
       interval: 10s
       timeout: 5s
       retries: 5
-
     volumes:
       - type: volume
         source: pgdata
         target: /var/lib/postgresql/data
 
 volumes:
-
   pgdata:
     driver: local

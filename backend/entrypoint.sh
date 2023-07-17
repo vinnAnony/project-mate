@@ -9,14 +9,9 @@ deploy(){
 	python manage.py collectstatic --no-input
 
 	#Print wkhtmltopdf installation path - needed to be placed in environment variables
-	echo "wkhtmltopdf path >>>"
+	echo "<<< wkhtmltopdf path >>>"
 	which wkhtmltopdf
-	echo "wkhtmltopdf path <<<"
-
-	#Print list of users - to get UID of a non-root user (required in some cases)
-	echo "list of users >>>"
-	getent passwd
-	echo "list of users <<<"
+	echo ">>> wkhtmltopdf path <<<"
 
     gunicorn bizcore.wsgi:application --bind 0.0.0.0:${APP_PORT}
 }
