@@ -44,7 +44,7 @@ def remind_one_week_invoice_due():
                 'subscription': model_to_dict(invoice.subscription_id.subscription_package_id),
                 'due_days': '7 days',
                 'company':{
-                    'name':'BizCore'
+                    'name':'ProjectMate'
                 },
                 'invoice':{
                     'invoice_no':invoice.invoice_no,
@@ -90,7 +90,7 @@ def generate_and_email_invoice_pdf(pk):
         context['project'] = model_to_dict(invoice.subscription_id.subscription_package_id.project_id)
         context['subscription_package'] = model_to_dict(invoice.subscription_id.subscription_package_id)
         context['company'] = {
-                'name':'BizCore',
+                'name':'ProjectMate',
                 'logo':'https://vinnjeru.com/images/vinn-logo.png'
             }
         context['invoice'] = {
@@ -143,7 +143,7 @@ def generate_and_email_invoice_pdf(pk):
                 'project': model_to_dict(invoice.subscription_id.subscription_package_id.project_id),
                 'subscription': model_to_dict(invoice.subscription_id.subscription_package_id),
                 'company':{
-                    'name':'BizCore'
+                    'name':'ProjectMate'
                 },
                 'invoice':{
                     'invoice_no':invoice.invoice_no,

@@ -43,7 +43,7 @@ class SubscriptionSerializer(serializers.ModelSerializer):
                 'project': model_to_dict(subscription.subscription_package_id.project_id),
                 'subscription': model_to_dict(subscription.subscription_package_id),
                 'company':{
-                    'name':'BizCore'
+                    'name':'ProjectMate'
                 }
                 },
             template='new_subscription',

@@ -1,4 +1,4 @@
-version: '3.11'
+version: "3.11"
 x-environment: &commonEnvironment
   - APP_PORT=${APP_PORT}
   - DEBUG=${DEBUG}
@@ -22,10 +22,9 @@ x-environment: &commonEnvironment
   - EMAIL_SENDER=${EMAIL_SENDER}
 
 services:
-
   application:
     build: .
-    
+
     environment: *commonEnvironment
 
     env_file:
@@ -35,30 +34,27 @@ services:
       - "8000:${APP_PORT}"
 
     command: sh -c "python manage.py migrate &&
-                    python manage.py createsuperuser --first_name=${DJANGO_SUPERUSER_FIRSTNAME} --last_name=${DJANGO_SUPERUSER_LASTNAME} --username ${DJANGO_SUPERUSER_USERNAME} --email ${DJANGO_SUPERUSER_EMAIL} --noinput &&
-                    python manage.py collectstatic &&
-                    gunicorn bizcore.wsgi:application --bind 0.0.0.0:${APP_PORT}"
+      python manage.py createsuperuser --first_name=${DJANGO_SUPERUSER_FIRSTNAME} --last_name=${DJANGO_SUPERUSER_LASTNAME} --username ${DJANGO_SUPERUSER_USERNAME} --email ${DJANGO_SUPERUSER_EMAIL} --noinput &&
+      python manage.py collectstatic &&
+      gunicorn projectmate.wsgi:application --bind 0.0.0.0:${APP_PORT}"
 
   celery:
-
     build: .
 
     depends_on:
       - application
       - redis
-    
-    command: sh -c "celery -A bizcore worker -l info &&
-                    celery -A bizcore  beat -l info"
+
+    command: sh -c "celery -A projectmate worker -l info &&
+      celery -A projectmate  beat -l info"
 
     environment: *commonEnvironment
 
   redis:
-
     image: redis:7-alpine
     restart: always
 
   database:
-
     image: postgres:alpine
     restart: always
 
@@ -71,7 +67,7 @@ services:
       - POSTGRES_DB=${DATABASE_DB}
 
     healthcheck:
-      test: ["CMD", "pg_isready",'-U${DATABASE_USER}', '-d${DATABASE_DB}']
+      test: ["CMD", "pg_isready", "-U${DATABASE_USER}", "-d${DATABASE_DB}"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -82,6 +78,5 @@ services:
         target: /var/lib/postgresql/data
 
 volumes:
-
   pgdata:
     driver: local

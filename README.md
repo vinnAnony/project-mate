@@ -1,10 +1,10 @@
-# BizCore
+# ProjectMate
 
 A web app to help in management of an organization - especially software dev team, to manage project, invoicing and payments.
 
 ## Features
 
-BizCore provides the following features:
+ProjectMate provides the following features:
 
 - [x] User authentication and authorization
 - [x] Create, edit and delete projects
@@ -19,6 +19,7 @@ BizCore provides the following features:
 - [ ] Create, edit and delete payments -from clients
 - [ ] Encrypted credentials manager with MFA
 - [ ] User profile management
+
 ### Setting up:
 
 - Create a virtual environment and activate it:
@@ -33,46 +34,48 @@ BizCore provides the following features:
   ```bash
           pip install -r requirements.txt
   ```
+
 #### Using Docker:
+
 - Navigate to the **`backend`** folder.
 
 - Build docker image from the Dockerfile:
 
 ```yaml
-docker build -t bizcore-django .
+docker build -t projectmate-django .
 ```
 
 - Run docker container image:
 
 ```yaml
-docker run -it -p 8000:8000 --env-file .env bizcore-django
+docker run -it -p 8000:8000 --env-file .env projectmate-django
 ```
 
 #### Creating database and database user
 
 ```yaml
-CREATE DATABASE bizcore;
+CREATE DATABASE projectmate;
 
-CREATE USER bizcore_user WITH PASSWORD 'pa$$word';
+CREATE USER projectmate_user WITH PASSWORD 'pa$$word';
 
-GRANT ALL PRIVILEGES ON DATABASE bizcore TO bizcore_user;
+GRANT ALL PRIVILEGES ON DATABASE projectmate TO projectmate_user;
 ```
 
 - Modify a few of the connection settings for your user to speed up database operations.
 
 ```yaml
-ALTER ROLE bizcore_user SET client_encoding TO 'utf8';
+ALTER ROLE projectmate_user SET client_encoding TO 'utf8';
 
-ALTER ROLE bizcore_user SET default_transaction_isolation TO 'read committed';
+ALTER ROLE projectmate_user SET default_transaction_isolation TO 'read committed';
 
-ALTER ROLE bizcore_user SET timezone TO 'UTC';
+ALTER ROLE projectmate_user SET timezone TO 'UTC';
 ```
 
 > In case you get migration issues (permission denied for schema public), run the below command to add db user as the database owner
 
 ```yaml
-GRANT CREATE ON SCHEMA public TO bizcore_user;
-ALTER DATABASE bizcore OWNER TO bizcore_user;
+GRANT CREATE ON SCHEMA public TO projectmate_user;
+ALTER DATABASE projectmate OWNER TO projectmate_user;
 ```
 
 #### Running Celery
@@ -80,13 +83,13 @@ ALTER DATABASE bizcore OWNER TO bizcore_user;
 - Run celery scheduler - for periodic tasks
 
 ```yaml
-celery -A bizcore  beat -l info
+celery -A projectmate  beat -l info
 ```
 
 - Run celery background worker
 
 ```yaml
-celery -A bizcore worker -l info
+celery -A projectmate worker -l info
 ```
 
 #### PDF generation

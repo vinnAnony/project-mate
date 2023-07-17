@@ -14,6 +14,6 @@ urlpatterns = [
     path("api/", include("subscription.urls")),
 ]
 
-admin.site.site_header = "BizCore MS Admin"
-admin.site.site_title = "BizCore Admin Portal"
-admin.site.index_title = "Welcome to BizCore MS"
+admin.site.site_header = "ProjectMate MS Admin"
+admin.site.site_title = "ProjectMate Admin Portal"
+admin.site.index_title = "Welcome to ProjectMate MS"
