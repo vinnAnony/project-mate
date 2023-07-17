@@ -8,12 +8,12 @@ deploy(){
 
 	python manage.py collectstatic
 
-	#Print wkhtmltopdf installation path
+	#Print wkhtmltopdf installation path - needed to be placed in environment variables
 	echo "wkhtmltopdf path >>>"
 	which wkhtmltopdf
 	echo "wkhtmltopdf path <<<"
 
-	#Print list of users
+	#Print list of users - to get UID of a non-root user (required in some cases)
 	echo "list of users >>>"
 	getent passwd
 	echo "list of users <<<"
