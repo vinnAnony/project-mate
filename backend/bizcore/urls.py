@@ -17,3 +17,5 @@ urlpatterns = [
 admin.site.site_header = "BizCore MS Admin"
 admin.site.site_title = "BizCore Admin Portal"
 admin.site.index_title = "Welcome to BizCore MS"
+
+handler404 = 'bizcore.views.page_not_found_view'
