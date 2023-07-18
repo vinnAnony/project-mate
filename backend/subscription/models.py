@@ -12,7 +12,7 @@ class SubscriptionPackage(models.Model):
         Week = "Week"
         Month = "Month"
         Year = "Year"
-        OneTime = "One-Time"
+        One_Time = "One-Time"
 
     id = models.UUIDField(
         default=uuid.uuid4, primary_key=True, unique=True, editable=False
@@ -45,7 +45,7 @@ class SubscriptionPackage(models.Model):
 
 class Subscription(models.Model):
     class SubscriptionStatus(models.TextChoices):
-        PendingPayment = "Pending Payment"
+        Pending_Payment = "Pending Payment"
         Active = "Active"
         Suspended = "Suspended"
         Cancelled = "Cancelled"
@@ -58,7 +58,7 @@ class Subscription(models.Model):
     subscription_package_id = models.ForeignKey(
         SubscriptionPackage, on_delete=models.DO_NOTHING
     )
-    status = models.CharField(max_length=100, choices=SubscriptionStatus.choices, null=False, blank=False,default=SubscriptionStatus.PendingPayment)
+    status = models.CharField(max_length=100, choices=SubscriptionStatus.choices, null=False, blank=False,default=SubscriptionStatus.Pending_Payment)
     activated_at = models.DateTimeField(null=True, blank=True)
     suspended_at = models.DateTimeField(null=True, blank=True)
     cancelled_at = models.DateTimeField(null=True, blank=True)
@@ -80,8 +80,9 @@ class Subscription(models.Model):
 
 # Initialize first invoice number
 def get_initial_invoice_number():
-    if Invoice.objects.exists():
-        return None
+    last_invoice_no = Invoice.objects.last()
+    if last_invoice_no:
+        return last_invoice_no.invoice_no + 1
     else:
         return 10001
         
@@ -92,7 +93,7 @@ class Invoice(models.Model):
         Due = "Due"
         
     id = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
-    invoice_no = models.AutoField(unique=True, primary_key=True, editable=False,default=get_initial_invoice_number)
+    invoice_no = models.IntegerField(unique=True, primary_key=True, editable=False,default=get_initial_invoice_number)
     subscription_id = models.ForeignKey(Subscription, on_delete=models.DO_NOTHING,related_name='subscriptions')    
     status = models.CharField(max_length=100, choices=InvoiceStatus.choices, null=False, blank=False,default=InvoiceStatus.Pending)
     total_amount = models.DecimalField(max_digits=11, decimal_places=2, null=False, blank=False,help_text='Amount excluding tax')
