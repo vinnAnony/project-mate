@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'project',
     'customer',
     'subscription',
+    'payment',
     'mail',
     #djangorestframework
     'rest_framework',
