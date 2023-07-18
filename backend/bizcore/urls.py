@@ -4,7 +4,10 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
+from . import views
+
 urlpatterns = [
+    path('', views.index, name='index'),
     path("admin/", admin.site.urls),
     path("api/auth/login/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("api/auth/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
@@ -17,3 +20,5 @@ urlpatterns = [
 admin.site.site_header = "BizCore MS Admin"
 admin.site.site_title = "BizCore Admin Portal"
 admin.site.index_title = "Welcome to BizCore MS"
+
+handler404 = 'bizcore.views.page_not_found_view'
