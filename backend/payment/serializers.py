@@ -21,6 +21,4 @@ class PaymentSerializer(serializers.ModelSerializer):
             processed_by = payment["processed_by"],
         )                        
         
-        Payment.update_invoice_and_subscription(payment)
-        
         return payment    
