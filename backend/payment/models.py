@@ -16,10 +16,10 @@ class Payment(models.Model):
         OUT = "out"
         
     class PaymentMethod(models.TextChoices):
-        CASH = "cash"
-        MPESA = "mpesa"
-        PAYBILL = "paybill"
-        BANK = "bank"
+        CASH = "Cash"
+        MPESA = "Mpesa"
+        PAYBILL = "Paybill"
+        BANK = "Bank"
         
     id = models.UUIDField(primary_key=True,default=uuid.uuid4, unique=True, editable=False)  
     amount = models.DecimalField(max_digits=11, decimal_places=2, null=False, blank=False)
@@ -27,7 +27,7 @@ class Payment(models.Model):
     payment_method = models.CharField(max_length=100, choices=PaymentMethod.choices, null=False, blank=False)
     reference = models.CharField(max_length=100, null=True, blank=True, default='')
     description = models.TextField(null=True, blank=True, default='')
-    invoice_id = models.ForeignKey('subscription.Invoice', on_delete=models.DO_NOTHING,related_name='payments')  
+    invoice_id = models.ForeignKey('subscription.Invoice', on_delete=models.DO_NOTHING,related_name='payments', null=True, blank=True)  
     processed_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -37,7 +37,7 @@ class Payment(models.Model):
         verbose_name_plural = ("Payments")
 
     def __str__(self):
-        return f"{self.payment_method}:{self.payment_type}"
+        return f"{self.payment_method} {self.payment_type}: {self.amount}"
 
     def get_absolute_url(self):
         return reverse("payment-detail", kwargs={"pk": self.pk})
