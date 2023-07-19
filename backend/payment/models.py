@@ -12,14 +12,14 @@ from subscription.models import Invoice,Subscription
 class Payment(models.Model):
     
     class PaymentType(models.TextChoices):
-        In = "in"
-        Out = "out"
+        IN = "in"
+        OUT = "out"
         
     class PaymentMethod(models.TextChoices):
-        Cash = "Cash"
-        Mpesa = "Mpesa"
-        PayBill = "PayBill"
-        Bank = "Bank"
+        CASH = "cash"
+        MPESA = "mpesa"
+        PAYBILL = "paybill"
+        BANK = "bank"
         
     id = models.UUIDField(primary_key=True,default=uuid.uuid4, unique=True, editable=False)  
     amount = models.DecimalField(max_digits=11, decimal_places=2, null=False, blank=False)
@@ -56,8 +56,8 @@ class Payment(models.Model):
         # update invoice
         invoice = Invoice.objects.get(pk=self.invoice_id.invoice_no)        
         if invoice:            
-            if self.payment_type == self.PaymentType.In:
-                invoice.total_paid = decimal.Decimal(invoice.total_paid + self.amount)
+            if self.payment_type == self.PaymentType.IN:
+                invoice.total_paid += decimal.Decimal(self.amount)
                 
                 # update subscription status
                 total_amount_due = decimal.Decimal(invoice.total_amount + invoice.total_tax_amount) - decimal.Decimal(invoice.total_paid)
