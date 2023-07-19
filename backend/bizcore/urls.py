@@ -16,6 +16,7 @@ urlpatterns = [
     path("api/customers/", include("customer.urls")),
     path("api/", include("subscription.urls")),
     path("api/", include("payment.urls")),
+    path("api/", include("mpesa.urls")),
 ]
 
 admin.site.site_header = "BizCore MS Admin"

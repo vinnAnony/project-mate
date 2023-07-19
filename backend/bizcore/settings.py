@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'customer',
     'subscription',
     'payment',
+    'mpesa',
     'mail',
     #djangorestframework
     'rest_framework',
@@ -283,3 +284,41 @@ EMAIL_DEFAULT_REPLY_TO = env("EMAIL_DEFAULT_REPLY_TO")
 # PDF generation configuration
 PDF_FILES_FOLDER = os.path.join(MEDIA_ROOT, 'pdf')
 WKHTMLTOPDF_LOCATION = env("WKHTMLTOPDF_LOCATION")
+
+#Mpesa configuration
+
+# The Mpesa environment to use
+# Possible values: sandbox, production
+MPESA_ENVIRONMENT = env("MPESA_ENVIRONMENT")
+
+# Credentials for the daraja app
+MPESA_CONSUMER_KEY = env("MPESA_CONSUMER_KEY")
+MPESA_CONSUMER_SECRET = env("MPESA_CONSUMER_SECRET")
+
+#Shortcode to use for transactions. For sandbox  use the Shortcode 1 provided on test credentials page
+MPESA_SHORTCODE = env("MPESA_SHORTCODE")
+
+# Shortcode to use for Lipa na MPESA Online (MPESA Express) transactions
+# This is only used on sandbox, do not set this variable in production
+# For sandbox use the Lipa na MPESA Online Shorcode provided on test credentials page
+MPESA_EXPRESS_SHORTCODE = env("MPESA_EXPRESS_SHORTCODE")
+
+# Type of shortcode
+# Possible values:
+# - paybill (For Paybill)
+# - till_number (For Buy Goods Till Number)
+MPESA_SHORTCODE_TYPE = env("MPESA_SHORTCODE_TYPE")
+
+# Lipa na MPESA Online passkey
+# Sandbox passkey is available on test credentials page
+# Production passkey is sent via email once you go live
+MPESA_PASSKEY = env("MPESA_PASSKEY")
+
+# Username for initiator (to be used in B2C, B2B, AccountBalance and TransactionStatusQuery Transactions)
+MPESA_INITIATOR_USERNAME = env("MPESA_INITIATOR_USERNAME")
+
+# Plaintext password for initiator (to be used in B2C, B2B, AccountBalance and TransactionStatusQuery Transactions)
+MPESA_INITIATOR_SECURITY_CREDENTIAL = env("MPESA_INITIATOR_SECURITY_CREDENTIAL")
+
+# Callback url
+MPESA_CALLBACK_URL = env("MPESA_CALLBACK_URL")
