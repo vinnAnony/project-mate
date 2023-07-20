@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+import json
 import os
 from mpesa.daraja import utils
 
@@ -9,6 +10,7 @@ from mpesa.daraja.core import MpesaClient
 from decouple import config
 from datetime import datetime
 from django.conf import settings
+from mpesa.daraja_v2 import statusQueryHandler
 
 cl = MpesaClient()
 stk_push_callback_url = settings.MPESA_EXPRESS_CALLBACK_URL
@@ -57,3 +59,15 @@ def promotion_payment_success(request):
 	callback_url = b2c_callback_url
 	r = cl.promotion_payment(phone_number, amount, transaction_desc, callback_url, occassion)
 	return JsonResponse(r.response_description, safe=False)
+
+def transaction_status_query(request):
+	class StatusQueryInitiator:
+		MSISDN = 1
+		TILL_NUMBER = 2
+		ORGANISATION_SHORT_CODE = 4
+
+	mpesa_transaction_id = 'RGK11RZPTT'
+	initiator = StatusQueryInitiator.ORGANISATION_SHORT_CODE
+	
+	r = statusQueryHandler().handle(mpesaTransactionID=mpesa_transaction_id,initiator=initiator)
+	return JsonResponse(json.loads(r), safe=False)

@@ -4,23 +4,34 @@ from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_v1_5
 from decouple import config
 from .common import  RequestHandler
+from mpesa.daraja.utils import encrypt_security_credential
 class statusQueryHandler:
 	@staticmethod
-	def handle(**kwargs):
+	def handle(mpesaTransactionID:str, initiator:int):
+		"""
+		Check the status of a transaction.
+
+		Args:
+			mpesaTransactionID (str): -- The Mobile Number to receive the STK Pin Prompt.
+			initiator (int) -- This is the Amount transacted normaly a numeric value. Money that customer pays to the Shorcode. Only whole numbers are supported.			
+
+		Returns:
+			str: Transaction status result
+		"""
 		try:
 			requestbody={}
-			requestbody['Initiator']=config('sqInitiator')
-			requestbody['SecurityCredential']=base64.b64encode(PKCS1_v1_5.new(RSA.importKey(open('pubkey.pem').read())).encrypt(config('init_password').encode("utf-8")))
+			requestbody['Initiator']=config('MPESA_INITIATOR_USERNAME') 
+			requestbody['SecurityCredential']=encrypt_security_credential(config('MPESA_INITIATOR_SECURITY_CREDENTIAL'))
 			requestbody['CommandID']='TransactionStatusQuery'
-			requestbody['TransactionID']=kwargs.pop('mpesaTransactionID')
-			requestbody['PartyA']=config('sqShortcode')
-			requestbody['IdentifierType']=kwargs.pop('initiator')
-			requestbody['ResultURL']=config('sqResultURL')
-			requestbody['QueueTimeOutURL']=config('sqQueueTimeOutURL')
+			requestbody['TransactionID']=mpesaTransactionID
+			requestbody['PartyA'] = config('MPESA_SHORTCODE')						
+			requestbody['IdentifierType']=initiator
+			requestbody['ResultURL']=config('MPESA_B2C_CALLBACK_URL')
+			requestbody['QueueTimeOutURL']=config('MPESA_B2C_CALLBACK_URL')
 			requestbody['Remarks']='Status query'
 			requestbody['Occasion']=str(datetime.datetime.now().strftime("%Y%m%d%H%M%S"))
 			return RequestHandler().makeRequest(
-				url='transactionstatus/v1/query',
+				url='mpesa/transactionstatus/v1/query',
 				data=requestbody
 			)
 		except Exception as e:

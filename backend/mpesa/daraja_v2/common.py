@@ -1,21 +1,24 @@
 import json
-import requests as link
+import requests
 from requests.auth import HTTPBasicAuth
 from decouple import config
+from mpesa.daraja.utils import mpesa_access_token
 class RequestHandler:
 	def __init__(self):
-		self.debug = False
-		self.base_url = 'https://api.safaricom.co.ke/' if self.debug is False else 'https://api.safaricom.co.ke/'
+		mpesa_environment = config('MPESA_ENVIRONMENT')
+		if mpesa_environment == 'sandbox':
+			self.base_url = 'https://sandbox.safaricom.co.ke/'
+		else:
+			self.base_url = 'https://api.safaricom.co.ke/'
 
 	def makeRequest(self,**kwargs):
 		try:
 			data=kwargs.pop('data')
-			print(data)
-			token=json.loads(link.get(self.base_url+'oauth/v1/generate?grant_type=client_credentials',auth=HTTPBasicAuth(config('consumer_key'),config('consumer_secret'))).text)['access_token']
+			print(data)			
 			headers={}
 			headers['Content-Type']='application/json'
-			headers['Authorization']='Bearer'+' '+token
-			response=lambda headers:link.post(self.base_url+kwargs.pop('url'),json=data,headers=headers).text
+			headers['Authorization']='Bearer'+' '+mpesa_access_token()
+			response = lambda headers:requests.post(self.base_url+kwargs.pop('url'), json=data, headers=headers).text
 			return response(headers)
 		except Exception as e:
 			raise  e
