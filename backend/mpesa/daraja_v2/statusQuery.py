@@ -26,8 +26,8 @@ class statusQueryHandler:
 			requestbody['TransactionID']=mpesaTransactionID
 			requestbody['PartyA'] = config('MPESA_SHORTCODE')						
 			requestbody['IdentifierType']=initiator
-			requestbody['ResultURL']=config('MPESA_B2C_CALLBACK_URL')
-			requestbody['QueueTimeOutURL']=config('MPESA_B2C_CALLBACK_URL')
+			requestbody['ResultURL']=config('MPESA_STATUS_QUERY_RESULT_URL')
+			requestbody['QueueTimeOutURL']=config('MPESA_STATUS_QUERY_TIMEOUT_URL')
 			requestbody['Remarks']='Status query'
 			requestbody['Occasion']=str(datetime.datetime.now().strftime("%Y%m%d%H%M%S"))
 			return RequestHandler().makeRequest(
