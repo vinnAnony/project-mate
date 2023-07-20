@@ -1,4 +1,4 @@
-from python_mpesawrapper.common import RequestHandler
+from .common import RequestHandler
 
 
 class c2bHandler:

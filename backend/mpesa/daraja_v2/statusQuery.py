@@ -3,7 +3,7 @@ import base64,datetime
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_v1_5
 from decouple import config
-from python_mpesawrapper.common import  RequestHandler
+from .common import  RequestHandler
 class statusQueryHandler:
 	@staticmethod
 	def handle(**kwargs):

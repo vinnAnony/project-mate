@@ -1,7 +1,7 @@
 import time,datetime,base64
 from decouple import config
 
-from python_mpesawrapper.common import  RequestHandler
+from .common import  RequestHandler
 
 
 class MpesaExpressHandler:
