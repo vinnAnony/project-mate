@@ -12,11 +12,12 @@ class statusQueryHandler:
 		Check the status of a transaction.
 
 		Args:
-			mpesaTransactionID (str): -- The Mobile Number to receive the STK Pin Prompt.
-			initiator (int) -- This is the Amount transacted normaly a numeric value. Money that customer pays to the Shorcode. Only whole numbers are supported.			
+			mpesaTransactionID (str): -- Unique identifier to identify a transaction on Mpesa.
+   
+			initiator (int) -- The name of the initiator initiating the request.
 
 		Returns:
-			str: Transaction status result
+			str: Transaction Status Request reponse body
 		"""
 		try:
 			requestbody={}
