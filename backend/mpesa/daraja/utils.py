@@ -205,7 +205,7 @@ def encrypt_security_credential(credential):
 	else:
 		raise MpesaConfigurationException('Mpesa environment not configured properly - MPESA_ENVIRONMENT should be sandbox or production')
 
-	certificate_path = os.path.join(settings.BASE_DIR, 'certs', certificate_name)
+	certificate_path = os.path.join(settings.BASE_DIR, 'mpesa','certs', certificate_name)
 	return encrypt_rsa(certificate_path, credential)
 
 def encrypt_rsa(certificate_path, input):

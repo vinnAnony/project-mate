@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+import os
 from mpesa.daraja import utils
 
 from django.http import HttpResponse, JsonResponse
@@ -7,10 +8,11 @@ from django.views.generic import View
 from mpesa.daraja.core import MpesaClient
 from decouple import config
 from datetime import datetime
+from django.conf import settings
 
 cl = MpesaClient()
-stk_push_callback_url = 'https://api.darajambili.com/express-payment'
-b2c_callback_url = 'https://api.darajambili.com/b2c/result'
+stk_push_callback_url = settings.MPESA_EXPRESS_CALLBACK_URL
+b2c_callback_url = settings.MPESA_B2C_CALLBACK_URL
 
 def index(request):
 
@@ -21,7 +23,7 @@ def oauth_success(request):
 	return JsonResponse(r, safe=False)
 
 def stk_push_success(request):
-	phone_number = config('LNM_PHONE_NUMBER')
+	phone_number = os.environ.get('MPESA_TEST_PHONENUMBER')
 	amount = 1
 	account_reference = 'ABC001'
 	transaction_desc = 'STK Push Description'
@@ -30,7 +32,7 @@ def stk_push_success(request):
 	return JsonResponse(r.response_description, safe=False)
 
 def business_payment_success(request):
-	phone_number = config('B2C_PHONE_NUMBER')
+	phone_number = os.environ.get('MPESA_TEST_PHONENUMBER')
 	amount = 1
 	transaction_desc = 'Business Payment Description'
 	occassion = 'Test business payment occassion'
@@ -39,7 +41,7 @@ def business_payment_success(request):
 	return JsonResponse(r.response_description, safe=False)
 
 def salary_payment_success(request):
-	phone_number = config('B2C_PHONE_NUMBER')
+	phone_number = os.environ.get('MPESA_TEST_PHONENUMBER')
 	amount = 1
 	transaction_desc = 'Salary Payment Description'
 	occassion = 'Test salary payment occassion'
@@ -48,7 +50,7 @@ def salary_payment_success(request):
 	return JsonResponse(r.response_description, safe=False)
 
 def promotion_payment_success(request):
-	phone_number = config('B2C_PHONE_NUMBER')
+	phone_number = os.environ.get('MPESA_TEST_PHONENUMBER')
 	amount = 1
 	transaction_desc = 'Promotion Payment Description'
 	occassion = 'Test promotion payment occassion'

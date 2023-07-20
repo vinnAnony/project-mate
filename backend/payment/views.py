@@ -34,7 +34,7 @@ def stk_push(request):
         amount = serializer.validated_data['amount']
         account_reference = serializer.validated_data['account_reference']
         transaction_desc = 'Payment'
-        callback_url = settings.MPESA_CALLBACK_URL
+        callback_url = settings.MPESA_EXPRESS_CALLBACK_URL
         response = cl.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
         
         return Response(response)
