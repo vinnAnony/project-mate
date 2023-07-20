@@ -106,6 +106,6 @@ sudo apt install ./wkhtmltox_0.12.6-1.focal_amd64.deb
 
 - Set all the required credentials values in the .env file
 
-> Note: For B2C, the certificate is required and should be placed in the `*backend/mpesa/certs/*` folder. The name of the certificate file should be either 'sandbox' or 'production', the appropriate one will be used depending on your MPESA_ENVIRONMENT.
+> Note: For B2C, the certificate is required and should be placed in the **`backend/mpesa/certs/`** folder. The name of the certificate file should be either 'sandbox' or 'production', the appropriate one will be used depending on your MPESA_ENVIRONMENT.
 
 > I have included both the sandbox and production cert files provided from the Daraja API.
