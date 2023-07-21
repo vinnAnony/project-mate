@@ -81,8 +81,8 @@ def transaction_reversal_success(request):
 	return JsonResponse(json.loads(r), safe=False)
 
 def register_c2b_urls_success(request):	
-	confirmation_url = 'https://example.com/payme/bizcore-django-c2b-confirm.php'
-	validation_url = 'https://example.com/payme/bizcore-django-c2b-validate.php'
+	confirmation_url = 'https://example.com/payme/projectmate-django-c2b-confirm.php'
+	validation_url = 'https://example.com/payme/projectmate-django-c2b-validate.php'
 	
 	r = c2bHandler().handle(confirmation_url=confirmation_url,validation_url=validation_url)
 	return JsonResponse(json.loads(r), safe=False)

@@ -13,7 +13,7 @@ deploy(){
 	which wkhtmltopdf
 	echo ">>> wkhtmltopdf path <<<"
 
-    gunicorn bizcore.wsgi:application --bind 0.0.0.0:${APP_PORT}
+    gunicorn projectmate.wsgi:application --bind 0.0.0.0:${APP_PORT}
 }
 
 deploy

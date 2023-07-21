@@ -1,4 +1,4 @@
-version: '3.11'
+version: "3.11"
 x-environment: &commonEnvironment
   - APP_PORT=${APP_PORT}
   - DEBUG=${DEBUG}
@@ -15,7 +15,6 @@ x-environment: &commonEnvironment
   - SECRET_KEY=${SECRET_KEY}
 
 services:
-
   application:
     build: .    
     environment: *commonEnvironment
@@ -27,7 +26,7 @@ services:
                 echo 'Insert this path in WKHTMLTOPDF_LOCATION environment variable.' &&
                 which wkhtmltopdf &&
                 echo '>>> WKHTMLTOPDF installation path <<<' &&
-                gunicorn bizcore.wsgi:application --bind 0.0.0.0:${APP_PORT}"
+                gunicorn projectmate.wsgi:application --bind 0.0.0.0:${APP_PORT}"
     volumes:
       - .:/app    
     depends_on:
@@ -37,7 +36,7 @@ services:
 
   celery-worker:
     build: .   
-    command: sh -c "celery -A bizcore worker -l info"
+    command: sh -c "celery -A projectmate worker -l info"
     volumes:
       - .:/app
     depends_on:
@@ -46,7 +45,7 @@ services:
   
   celery-beat:
     build: .   
-    command: sh -c "celery -A bizcore beat -l info"
+    command: sh -c "celery -A projectmate beat -l info"
     volumes:
       - .:/app
     depends_on:

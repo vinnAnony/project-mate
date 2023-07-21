@@ -19,8 +19,8 @@ urlpatterns = [
     path("api/", include("mpesa.urls")),
 ]
 
-admin.site.site_header = "BizCore MS Admin"
-admin.site.site_title = "BizCore Admin Portal"
-admin.site.index_title = "Welcome to BizCore MS"
+admin.site.site_header = "ProjectMate MS Admin"
+admin.site.site_title = "ProjectMate Admin Portal"
+admin.site.index_title = "Welcome to ProjectMate MS"
 
-handler404 = 'bizcore.views.page_not_found_view'
+handler404 = 'projectmate.views.page_not_found_view'
