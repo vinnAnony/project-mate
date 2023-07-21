@@ -17,7 +17,7 @@ class statusQueryHandler:
 			initiator (int) -- The name of the initiator initiating the request.
 
 		Returns:
-			str: Transaction Status Request reponse body
+			str: Transaction Status Request response body
 		"""
 		try:
 			requestbody={}

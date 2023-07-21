@@ -18,7 +18,7 @@ class reversalHandler:
 			remarks (str): -- Description for reversal
 
 		Returns:
-			str: Transaction Status Request reponse body
+			str: Reversal Request response body
 		"""
 		try:
 			requestbody={}
