@@ -22,3 +22,8 @@ class PaymentSerializer(serializers.ModelSerializer):
         )                        
         
         return payment    
+    
+class StkPushSerializer(serializers.Serializer):        
+    phone_number = serializers.CharField(max_length=100)
+    amount = serializers.IntegerField(min_value=1,max_value=300000)
+    account_reference = serializers.CharField(max_length=100)       

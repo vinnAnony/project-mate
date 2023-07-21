@@ -10,4 +10,5 @@ router.register(r"payments", PaymentViewset, basename="payment")
 
 urlpatterns = [
     path(r'', include(router.urls)),
+    path('pay/stk-push', stk_push),
 ]
