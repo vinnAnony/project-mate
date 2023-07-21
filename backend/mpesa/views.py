@@ -10,7 +10,7 @@ from mpesa.daraja.core import MpesaClient
 from decouple import config
 from datetime import datetime
 from django.conf import settings
-from mpesa.daraja_v2 import statusQueryHandler,reversalHandler
+from mpesa.daraja_v2 import statusQueryHandler,reversalHandler,c2bHandler
 
 cl = MpesaClient()
 stk_push_callback_url = settings.MPESA_EXPRESS_CALLBACK_URL
@@ -78,4 +78,11 @@ def transaction_reversal_success(request):
 	remarks = 'Reversal for mistaken payment'	
 	
 	r = reversalHandler().handle(mpesaTransactionID=mpesa_transaction_id,amount=amount,remarks=remarks)
+	return JsonResponse(json.loads(r), safe=False)
+
+def register_c2b_urls_success(request):	
+	confirmation_url = 'https://example.com/payme/bizcore-django-c2b-confirm.php'
+	validation_url = 'https://example.com/payme/bizcore-django-c2b-validate.php'
+	
+	r = c2bHandler().handle(confirmation_url=confirmation_url,validation_url=validation_url)
 	return JsonResponse(json.loads(r), safe=False)
