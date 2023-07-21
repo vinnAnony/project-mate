@@ -16,9 +16,10 @@ ProjectMate provides the following features:
   - [ ] via Whatsapp
 - [x] Automated email reminders for almost due invoices
   - [x] (1 week)
-- [ ] Create, edit and delete payments -from clients
+- [x] Create, edit and delete payments (clients' invoices and also pay-outs)
 - [ ] Encrypted credentials manager with MFA
 - [ ] User profile management
+- [x] Mpesa integration
 
 ### Setting up:
 
