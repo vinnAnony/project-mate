@@ -8,7 +8,8 @@ test_patterns = [
 	url(r'^business-payment/success', views.business_payment_success, name='test_business_payment_success'),
 	url(r'^salary-payment/success', views.salary_payment_success, name='test_salary_payment_success'),
 	url(r'^promotion-payment/success', views.promotion_payment_success, name='test_promotion_payment_success'),
-	url(r'^transaction-status/success', views.transaction_status_query, name='test_transaction_status'),
+	url(r'^transaction-status/success', views.transaction_status_query_success, name='test_transaction_status'),
+	url(r'^reversal/success', views.transaction_reversal_success, name='test_reversal'),
 ]
 
 urlpatterns = [

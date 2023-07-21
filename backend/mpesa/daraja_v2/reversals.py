@@ -1,24 +1,37 @@
 from  decouple import  config
-import base64,datetime
-from Crypto.PublicKey import RSA
-from Crypto.Cipher import PKCS1_v1_5
+import datetime
 from decouple import config
 from .common import  RequestHandler
+from mpesa.daraja.utils import encrypt_security_credential
 class reversalHandler:
 	@staticmethod
-	def handle(**kwargs):
+	def handle(mpesaTransactionID:str, amount:int, remarks:str):
+		"""
+		Reverses a C2B M-Pesa transaction.
+
+		Args:
+			
+			mpesaTransactionID (str): -- This is the Mpesa Transaction ID of the transaction which you wish to reverse.
+
+			amount (int) -- The amount transacted in the transaction is to be reversed, down to the cent.			
+
+			remarks (str): -- Description for reversal
+
+		Returns:
+			str: Transaction Status Request reponse body
+		"""
 		try:
 			requestbody={}
-			requestbody['Initiator']=config('reversalInitiator')
-			requestbody['SecurityCredential']=base64.b64encode(PKCS1_v1_5.new(RSA.importKey(open('pubkey.pem').read())).encrypt(config('reversalinit_password').encode("utf-8"))).decode('utf-8')
+			requestbody['Initiator']=config('MPESA_INITIATOR_USERNAME') 
+			requestbody['SecurityCredential']=encrypt_security_credential(config('MPESA_INITIATOR_SECURITY_CREDENTIAL'))
 			requestbody['CommandID']='TransactionReversal'
-			requestbody['TransactionID']=kwargs.pop('mpesaTransactionID')
-			requestbody['Amount']=kwargs.pop('amount')
-			requestbody['ReceiverParty']=config('reverseShortcode')
+			requestbody['TransactionID']=mpesaTransactionID
+			requestbody['Amount']=amount
+			requestbody['ReceiverParty']=config('MPESA_SHORTCODE')
 			requestbody['RecieverIdentifierType']=11
-			requestbody['ResultURL']=config('reversResultURL')
-			requestbody['QueueTimeOutURL']=config('reverseQueueTimeOutURL')
-			requestbody['Remarks']=kwargs.pop('remarks')
+			requestbody['ResultURL']=config('MPESA_REVERSAL_RESULT_URL')
+			requestbody['QueueTimeOutURL']=config('MPESA_REVERSAL_TIMEOUT_URL')
+			requestbody['Remarks']=remarks
 			requestbody['Occasion']=str('{:%y%m%d%H%M%S}'.format(datetime.datetime.now()))
 			return RequestHandler().makeRequest(
 				url='mpesa/reversal/v1/request',

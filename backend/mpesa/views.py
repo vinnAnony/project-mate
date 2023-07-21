@@ -10,7 +10,7 @@ from mpesa.daraja.core import MpesaClient
 from decouple import config
 from datetime import datetime
 from django.conf import settings
-from mpesa.daraja_v2 import statusQueryHandler
+from mpesa.daraja_v2 import statusQueryHandler,reversalHandler
 
 cl = MpesaClient()
 stk_push_callback_url = settings.MPESA_EXPRESS_CALLBACK_URL
@@ -60,7 +60,7 @@ def promotion_payment_success(request):
 	r = cl.promotion_payment(phone_number, amount, transaction_desc, callback_url, occassion)
 	return JsonResponse(r.response_description, safe=False)
 
-def transaction_status_query(request):
+def transaction_status_query_success(request):
 	class StatusQueryInitiator:
 		MSISDN = 1
 		TILL_NUMBER = 2
@@ -70,4 +70,12 @@ def transaction_status_query(request):
 	initiator = StatusQueryInitiator.ORGANISATION_SHORT_CODE
 	
 	r = statusQueryHandler().handle(mpesaTransactionID=mpesa_transaction_id,initiator=initiator)
+	return JsonResponse(json.loads(r), safe=False)
+
+def transaction_reversal_success(request):	
+	mpesa_transaction_id = 'RGL9297DVR'
+	amount = 1
+	remarks = 'Reversal for mistaken payment'	
+	
+	r = reversalHandler().handle(mpesaTransactionID=mpesa_transaction_id,amount=amount,remarks=remarks)
 	return JsonResponse(json.loads(r), safe=False)
