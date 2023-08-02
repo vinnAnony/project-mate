@@ -1,6 +1,6 @@
 # ProjectMate
 
-A web app to help in management of an organization - especially software dev team, to manage project, invoicing and payments.
+A web app to help in management of an organization - to manage project, invoicing and payments.
 
 ## Features
 
